@@ -1,0 +1,3 @@
+﻿  ConsoleApplication1.cpp
+f:\git\calculator\wxmwy\consoleapplication1\consoleapplication1\consoleapplication1.cpp(37): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  ConsoleApplication1.vcxproj -> F:\git\Calculator\wxmwy\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
