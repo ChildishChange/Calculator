@@ -27,8 +27,8 @@ namespace CalculatorUnitTest1
 		{
 			// TODO: 在此输入测试代码
 			Calculator* calc = new Calculator();
-			string ret = calc->Solve("1+2*3");
-			Assert::AreEqual(ret, (string)"1+2*3=7");
+			string ret = calc->Solve("4+2*3+1");
+			Assert::AreEqual(ret, (string)"4+2*3+1=11");
 		}
 
 	};
