@@ -1,0 +1,4 @@
+﻿  pch.cpp
+  Calculator.cpp
+c:\users\14114\source\repos\calculator\niuyuhang03\calculator\calculator\calculator.cpp(74): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> C:\Users\14114\source\repos\Calculator\Niuyuhang03\Calculator\Debug\Calculator.exe
