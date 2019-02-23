@@ -1,4 +1,4 @@
 ﻿  Calculator.cpp
-d:\code_concerned\ruangong\calculator\supplient\calculator\calculator\calculator.cpp(75): warning C4018: “<”: 有符号/无符号不匹配
-d:\code_concerned\ruangong\calculator\supplient\calculator\calculator\calculator.cpp(116): warning C4018: “<”: 有符号/无符号不匹配
+d:\code_concerned\ruangong\calculator\supplient\calculator\calculator\calculator.cpp(74): warning C4018: “<”: 有符号/无符号不匹配
+d:\code_concerned\ruangong\calculator\supplient\calculator\calculator\calculator.cpp(117): warning C4018: “<”: 有符号/无符号不匹配
   Calculator.vcxproj -> D:\code_concerned\ruangong\Calculator\supplient\Calculator\Debug\Calculator.exe
