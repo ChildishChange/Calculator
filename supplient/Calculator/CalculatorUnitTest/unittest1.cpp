@@ -21,5 +21,11 @@ namespace CalculatorUnitTest
 			Calculator* calc = new Calculator();
 			Assert::AreEqual(calc->Solve("1*3"), (string)"3");
 		}
+
+		TEST_METHOD(three_operand)
+		{
+			Calculator* calc = new Calculator();
+			Assert::AreEqual(calc->Solve("10*10+20"), (string)"120");
+		}
 	};
 }
