@@ -10,6 +10,7 @@ using namespace std;
 
 class Calculator {
 private:
+	static const unsigned int MAX_ITER = 10000;
 	string op[4] = { "+", "-", "*", "/" };
 public:
 	Calculator();
