@@ -4,6 +4,7 @@
 #include <stack>
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include "stdlib.h"
 #include <ctime>
 #include <string>
@@ -17,17 +18,26 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(1, 2); // bug1, operators' number should be 2 or 3
 	int start = 0;
-	int number1 = random(1, 100);
+	int number1 = random(0, 100); // bug2, number should be [0,100]
+	int mult_div_res = number1; // bug3, be sure that the result is integer
 	formula += to_string(number1);
 	while (start <= count) {
 		int operation = random(0, 3);
-		int number2 = random(1, 100);
+		int number2 = random(0, 100);
+		if (operation == 2)
+			mult_div_res *= number2;
+		else if (operation == 3) {
+			while (number2 == 0 || mult_div_res % number2 != 0)
+				number2 = random(0, 100);
+		}
+		else
+			mult_div_res = number2;
 		formula += op[operation] + to_string(number2);
 		start++;
 	}
+	
 	return formula;
 };
 
@@ -44,8 +54,8 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+				if (k <= j) { // bug4, length of number is wrong
+					tempStack->push_back(formula.substr(k, j - k + 1));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -56,8 +66,8 @@ string Calculator::Solve(string formula) {
 						&& (formulaChar == '*' || formulaChar == '/')) {
 						operatorStack->push(formulaChar);
 					}
-					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+					else { // bug5, operator should be original char in tempStack
+						tempStack->push_back(string(1,operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -107,11 +117,17 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
+	int n, i;
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
+	cin >> n; // bug6, generate fomular n times and reset random
+	ofstream outfile("subject.txt"); // bug7, write in file
+	srand((unsigned int)time(NULL));
+	for (i = 0; i < n; i++) {
+		string question = calc->MakeFormula();
+		string ret = calc->Solve(question);
+		outfile << ret << endl;
+	}
+	outfile.close();
 	getchar();
 }
 
