@@ -1,0 +1,4 @@
+﻿  Calculator.cpp
+g:\北航\计算机\软件工程\calculator\kevinjyp\calculator\calculator\calculator.cpp(78): warning C4018: “<”: 有符号/无符号不匹配
+g:\北航\计算机\软件工程\calculator\kevinjyp\calculator\calculator\calculator.cpp(125): warning C4477: “fprintf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“std::string”
+  Calculator.vcxproj -> G:\北航\计算机\软件工程\Calculator\Kevinjyp\Calculator\Debug\Calculator.exe
