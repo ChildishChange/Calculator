@@ -15,12 +15,14 @@
 
 using namespace std;
 
+int tag = 0;
+
 Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
 	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(1, 2);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
@@ -46,8 +48,8 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k <= (j+1)) {
-					tempStack->push_back(formula.substr(k, j + 1));
+				if (k <= j) {
+					tempStack->push_back(formula.substr(k, j + 1-k));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -59,7 +61,7 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(string(1, operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -102,6 +104,7 @@ string Calculator::Solve(string formula) {
 			}
 			else if (peekChar == "/") {
 				calcStack->push(to_string(a1 / b1));
+				tag = 1;
 			}
 		}
 	}
@@ -111,11 +114,13 @@ string Calculator::Solve(string formula) {
 int main()
 {
 	Calculator* calc = new Calculator();
+	tag = 0;
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("1+22");
+	string ret = calc->Solve(question);
+	cout << tag << endl;
 	cout << ret << endl;
-	getchar();
+	// getchar();
 }
 
 
