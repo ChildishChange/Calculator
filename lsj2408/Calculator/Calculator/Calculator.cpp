@@ -43,7 +43,7 @@ string Calculator::Solve(string formula) {
 			}
 			else {
 				if (k < j) {
-					tempStack->push_back(formula.substr(k, j+1));
+					tempStack->push_back(formula.substr(k, j + 1 - k));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -55,8 +55,9 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						
-						tempStack->push_back(to_string(operatorStack->top()));
+						string tmp = "";
+						tmp += operatorStack->top();
+						tempStack->push_back(tmp);
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
