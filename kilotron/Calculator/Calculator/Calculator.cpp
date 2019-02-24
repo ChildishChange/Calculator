@@ -17,12 +17,11 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(2, 3);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
-	while (start <= count) {
+	while (start < count) {
 		int operation = random(0, 3);
 		int number2 = random(1, 100);
 		formula += op[operation] + to_string(number2);
@@ -98,6 +97,8 @@ string Calculator::Solve(string formula) {
 				calcStack->push(to_string(a1 * b1));
 			}
 			else if (peekChar == "/") {
+				if (a1 % b1 != 0)
+					return "bad formula";
 				calcStack->push(to_string(a1 / b1));
 			}
 		}
@@ -109,22 +110,17 @@ int main()
 {
 	int n;
 	Calculator* calc = new Calculator();
+	srand((unsigned int)time(NULL));
 	cin >> n;
 	for (int i = 0; i < n; i++) {
 		string question = calc->MakeFormula();
 		string ret = calc->Solve(question);
-		cout << ret << endl;
-	}
-	getchar();
-}
-
-/*
-				if (a1 % b1 != 0)
-					return "bad formula";
 		if (ret != "bad formula")
 			cout << ret << endl;
 		else {
 			i--;
 		}
-*/
+	}
+	getchar();
+}
 
