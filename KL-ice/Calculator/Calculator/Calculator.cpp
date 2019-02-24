@@ -113,13 +113,20 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
-	Calculator* calc = new Calculator();
-	tag = 0;
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve(question);
-	cout << tag << endl;
-	cout << ret << endl;
+	int all_num, cc = 0;
+	cin >> all_num;
+	while(cc<all_num){
+		tag = 0;
+		Calculator* calc = new Calculator();
+		string question = calc->MakeFormula();
+		// cout << question << endl;
+		string ret = calc->Solve(question);
+		if (tag == 0)
+		{
+			cout << ret << endl;
+			cc += 1;
+		}
+	}
 	// getchar();
 }
 
