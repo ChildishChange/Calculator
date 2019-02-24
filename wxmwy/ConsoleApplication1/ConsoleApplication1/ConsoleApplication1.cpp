@@ -1,6 +1,4 @@
-﻿
-
-#include "pch.h"
+﻿#include "pch.h"
 #include <stack>
 #include <vector>
 #include <iostream>
@@ -9,7 +7,7 @@
 #include <string>
 #include "Calculator.h"
 
-#define random(a,b) (rand()%(b-a+1)+a)
+#define random(a,b) (rand()%(b-a+1)+a)   // 随机一个  ab 之间的整数
 
 using namespace std;
 
@@ -42,13 +40,16 @@ string Calculator::Solve(string formula) {
 			formulaChar == '*' || formulaChar == '/') {
 			if (j == len - 2) {
 				tempStack->push_back(formula.substr(k));
+				cout << formula.substr(k) << "\n";
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+				if (k <= j) {
+					tempStack->push_back(formula.substr(k, j + 1 - k));
+					cout << formula.substr(k, j + 1 - k) << "\n";
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
+					cout << formulaChar << "\n";
 				}
 				else {
 					char stackChar = operatorStack->top();
@@ -57,9 +58,10 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(string(1, operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
+						cout << formulaChar << "\n";
 					}
 				}
 			}
@@ -70,9 +72,11 @@ string Calculator::Solve(string formula) {
 		tempStack->push_back(string(1, operatorStack->top()));
 		operatorStack->pop();
 	}
+	cout << "cal\n";
 	stack<string>* calcStack = new stack<string>();
 	for (int i = 0; i < tempStack->size(); i++) {
 		string peekChar = tempStack->at(i);
+		cout << peekChar << "\n";
 		if (peekChar != "+" && peekChar != "-"
 			&& peekChar != "/" && peekChar != "*") {
 			calcStack->push(peekChar);
@@ -110,7 +114,7 @@ int main()
 	Calculator* calc = new Calculator();
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("11+22");
+	string ret = calc->Solve("1*22+2*22");
 	cout << ret << endl;
 	getchar();
 }
