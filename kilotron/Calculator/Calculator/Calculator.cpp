@@ -46,6 +46,7 @@ string Calculator::Solve(string formula) {
 				if (k < j + 1) { // old: j < k
 					tempStack->push_back(formula.substr(k, j + 1 - k)); // old: substr(k, j)
 				}
+			compare_op:
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
 				}
@@ -58,7 +59,7 @@ string Calculator::Solve(string formula) {
 					else {
 						tempStack->push_back(string(1, operatorStack->top())); //old: push_back(to_string(operatorStack->top()))
 						operatorStack->pop();
-						operatorStack->push(formulaChar);
+						goto compare_op;
 					}
 				}
 			}
@@ -110,6 +111,7 @@ int main()
 {
 	int n;
 	Calculator* calc = new Calculator();
+	cout << calc->Solve("27-3*6+8") << endl;
 	srand((unsigned int)time(NULL));
 	cin >> n;
 	for (int i = 0; i < n; i++) {

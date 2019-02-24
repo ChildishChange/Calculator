@@ -32,5 +32,12 @@ namespace CalculatorUnitTest
 			Assert::AreEqual(ret, (string)"43-10+9=42");
 		}
 
+		TEST_METHOD(TestMethod4)
+		{
+			Calculator *calc = new Calculator();
+			string ret = calc->Solve("27-3*6+8");
+			Assert::AreEqual(ret, (string)"27-3*6+8=17");
+		}
+
 	};
 }
