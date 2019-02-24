@@ -16,11 +16,11 @@ Calculator::Calculator() {}
 string Calculator::MakeFormula() {
 	string formula = "";
 	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(2, 3);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
-	while (start <= count) {
+	while (start < count) {
 		int operation = random(0, 3);
 		int number2 = random(1, 100);
 		formula += op[operation] + to_string(number2);
@@ -43,7 +43,7 @@ string Calculator::Solve(string formula) {
 			}
 			else {
 				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+					tempStack->push_back(formula.substr(k, j+1));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -55,6 +55,7 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
+						
 						tempStack->push_back(to_string(operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
@@ -108,7 +109,7 @@ int main()
 	Calculator* calc = new Calculator();
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("11+22");
+	string ret = calc->Solve("99*99*99");
 	cout << ret << endl;
 	getchar();
 }
