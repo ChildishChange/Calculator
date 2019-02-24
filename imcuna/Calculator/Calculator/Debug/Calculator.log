@@ -1,0 +1,4 @@
+﻿  Calculator.cpp
+d:\学习\se\se0\calculator\imcuna\calculator\calculator\calculator.cpp(57): warning C4305: “=”: 从“double”到“float”截断
+d:\学习\se\se0\calculator\imcuna\calculator\calculator\calculator.cpp(134): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> D:\学习\SE\SE0\Calculator\imcuna\Calculator\Debug\Calculator.exe
