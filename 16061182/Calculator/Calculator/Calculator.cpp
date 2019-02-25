@@ -12,7 +12,7 @@
 #include <string>
 #include "Calculator.h"
 
-#define random(a,b) (rand()%(b-a+1)+a)
+#define random(a,b) (rand()%(b-a+1)+a)//获得a到b之间（包括b）的随机数
 
 using namespace std;
 
@@ -23,11 +23,11 @@ string Calculator::MakeFormula() {
 	srand((unsigned int)time(NULL));
 	int count = random(1, 3);
 	int start = 0;
-	int number1 = random(1, 100);
+	int number1 = random(1, 99);
 	formula += to_string(number1);
 	while (start <= count) {
 		int operation = random(0, 3);
-		int number2 = random(1, 100);
+		int number2 = random(1, 99);
 		formula += op[operation] + to_string(number2);
 		start++;
 	}
@@ -45,23 +45,29 @@ string Calculator::Solve(string formula) {
 			formulaChar == '*' || formulaChar == '/') {
 			if (j == len - 2) {
 				tempStack->push_back(formula.substr(k));
+				//cout << "操作数 " << formula.substr(k, j + 1) << endl;
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+				if (k <= j) { //这里把"k < j"改为"k <= j"
+					tempStack->push_back(formula.substr(k, j + 1 - k)); //这里把"j + 1"改成"j + 1 - k"，每次读取一个操作数
+					//cout << "操作数 " << formula.substr(k, j + 1 - k) << endl;
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
+					//cout << "操作符入栈 " << formulaChar << endl;
 				}
 				else {
 					char stackChar = operatorStack->top();
 					if ((stackChar == '+' || stackChar == '-')
 						&& (formulaChar == '*' || formulaChar == '/')) {
 						operatorStack->push(formulaChar);
+						//cout << "操作符入栈 " << formulaChar << endl;
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(string(1, operatorStack->top()));//这里把"to_string(operatorStack->top())"(值为43)改成"string(1, operatorStack->top())"(值为+)
+						//cout << "操作符出栈 " << string(1, operatorStack->top()) << endl;
 						operatorStack->pop();
+						//cout << "操作符入栈 " << formulaChar << endl;
 						operatorStack->push(formulaChar);
 					}
 				}
@@ -71,6 +77,10 @@ string Calculator::Solve(string formula) {
 	}
 	while (!operatorStack->empty()) {
 		tempStack->push_back(string(1, operatorStack->top()));
+		//cout << "操作符出栈 " << string(1, operatorStack->top()) << endl;
+		if (to_string(operatorStack->top()) == string(1, operatorStack->top())) {
+			cout << "yes!" << endl;
+		}
 		operatorStack->pop();
 	}
 	stack<string>* calcStack = new stack<string>();
@@ -110,12 +120,14 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
-	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
+	for (int i = 0; i < 10000000; i++) {
+		Calculator* calc = new Calculator();
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve("1+51/17");
+		cout << ret << endl;
+		//getchar();
+	}
 }
 
 
