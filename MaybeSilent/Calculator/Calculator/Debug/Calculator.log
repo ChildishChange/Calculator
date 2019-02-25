@@ -1,4 +1,1 @@
-﻿  pch.cpp
-  Calculator.cpp
-e:\workfile\curwork\engineering\calculator\maybesilent\calculator\calculator\calculator.cpp(74): warning C4018: '<': signed/unsigned mismatch
-  Calculator.vcxproj -> E:\workfile\curwork\engineering\Calculator\MaybeSilent\Calculator\Debug\Calculator.exe
+﻿  Calculator.vcxproj -> E:\workfile\curwork\engineering\Calculator\MaybeSilent\Calculator\Debug\Calculator.exe
