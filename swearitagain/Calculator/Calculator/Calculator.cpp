@@ -8,6 +8,7 @@
 #include <ctime>
 #include <string>
 #include "Calculator.h"
+#include <fstream>
 
 #define random(a,b) (rand()%(b-a+1)+a)
 
@@ -17,7 +18,7 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
+	//srand((unsigned int)time(NULL));
 	int count = random(1, 3);
 	int start = 0;
 	int number1 = random(1, 100);
@@ -32,8 +33,8 @@ string Calculator::MakeFormula() {
 };
 
 string Calculator::Solve(string formula) {
-	vector<string>* tempStack = new vector<string>();
-	stack<char>* operatorStack = new stack<char>();
+	vector<string>* tempStack = new vector<string>();//操作数栈
+	stack<char>* operatorStack = new stack<char>();//操作符栈
 	int len = formula.length();
 	int k = 0;
 	for (int j = -1; j < len - 1; j++) {
@@ -42,22 +43,24 @@ string Calculator::Solve(string formula) {
 			formulaChar == '*' || formulaChar == '/') {
 			if (j == len - 2) {
 				tempStack->push_back(formula.substr(k));
-			}
+			}//表达式结束，把最后一个操作数入栈
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
-				}
+				if (k <= j) {
+					tempStack->push_back(formula.substr(k, j + 1 - k));
+				}//该操作符前的操作数入栈
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
-				}
+				}//操作符栈为空则入栈
 				else {
 					char stackChar = operatorStack->top();
 					if ((stackChar == '+' || stackChar == '-')
 						&& (formulaChar == '*' || formulaChar == '/')) {
 						operatorStack->push(formulaChar);
-					}
+					}//如果当前是乘除而栈顶是加减，则入栈
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						string str;
+						str += (operatorStack->top());
+						tempStack->push_back(str);
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -98,7 +101,9 @@ string Calculator::Solve(string formula) {
 				calcStack->push(to_string(a1 * b1));
 			}
 			else if (peekChar == "/") {
+				if (a1 % b1) return "Illegal!";
 				calcStack->push(to_string(a1 / b1));
+				
 			}
 		}
 	}
@@ -107,12 +112,27 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
+	//Calculator* calc = new Calculator();
+	//string question = calc->MakeFormula();
+	//cout << question << endl;
+	//string ret = calc->Solve("11+22");
+	//cout << ret << endl;
+	//getchar();
+	srand((unsigned int)time(NULL));
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
+	//string ret = calc->Solve("5*54+83");
+	int n;
+	cin >> n;
+	ofstream fout;
+	fout.open("subject.txt");
+	for (int i = 0; i < n; i++) {
+		string question = calc->MakeFormula();
+		//cout << question << endl;
+		string ret = calc->Solve(question);
+		if (ret == "Illegal!") i--;
+		else fout << ret << endl;
+		//getchar();
+	}
 }
 
 
