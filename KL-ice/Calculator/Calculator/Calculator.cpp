@@ -10,6 +10,7 @@
 #include <ctime>
 #include <string>
 #include "Calculator.h"
+#include <fstream>
 
 #define random(a,b) (rand()%(b-a+1)+a)
 
@@ -104,7 +105,8 @@ string Calculator::Solve(string formula) {
 			}
 			else if (peekChar == "/") {
 				calcStack->push(to_string(a1 / b1));
-				tag = 1;
+				if(a1%b1 != 0)
+					tag = 1;
 			}
 		}
 	}
@@ -113,6 +115,8 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
+	ofstream outfile;
+	outfile.open("subject.txt");
 	int all_num, cc = 0;
 	cin >> all_num;
 	while(cc<all_num){
@@ -123,10 +127,11 @@ int main()
 		string ret = calc->Solve(question);
 		if (tag == 0)
 		{
-			cout << ret << endl;
+			outfile << ret << endl;
 			cc += 1;
 		}
 	}
+	outfile.close();
 	// getchar();
 }
 
