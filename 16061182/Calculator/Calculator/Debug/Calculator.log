@@ -1,0 +1,4 @@
+﻿  pch.cpp
+  Calculator.cpp
+e:\git\calculator\16061182\calculator\calculator\calculator.cpp(77): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> E:\git\Calculator\16061182\Calculator\Debug\Calculator.exe
