@@ -8,6 +8,7 @@
 #include <ctime>
 #include <string>
 #include "Calculator.h"
+#include <fstream>
 
 #define random(a,b) (rand()%(b-a+1)+a)
 
@@ -17,16 +18,26 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(1,2);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
+	int p1=0;
 	while (start <= count) {
 		int operation = random(0, 3);
 		int number2 = random(1, 100);
+		while (operation == 3) {
+			if (p1%number2 != 0) {
+				number2 = random(1, 100);
+			}	
+			else
+			{
+				break;
+			}
+		}
 		formula += op[operation] + to_string(number2);
 		start++;
+		p1 = number2;
 	}
 	return formula;
 };
@@ -105,14 +116,27 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+	int times;
+	if (argc >= 1) {
+		times = atoi(argv[1]);
+	}
+	srand((unsigned int)time(NULL));
+	ofstream SaveFile("subject.txt");
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22+11");
+	for (int i = 0; i < times; i++) {
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve(question);
+		cout << ret << endl;
+		//SaveFile << question;
+		SaveFile << ret;
+		SaveFile << "\n";
+	}
+	SaveFile.close();
 
-	cout << ret << endl;
+	
 	getchar();
 	/*for (int i = 0; i < 10000000; i++) {
 		Calculator* calc = new Calculator();
