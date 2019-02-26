@@ -22,7 +22,6 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
 	int count = random(1, 2);
 	int start = 0;
 	int number1 = random(1, 100);
@@ -113,12 +112,26 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
-int main()
+int main(int argc, char * argv[])
 {
+	srand((unsigned int)time(NULL));
 	ofstream outfile;
 	outfile.open("subject.txt");
 	int all_num, cc = 0;
-	cin >> all_num;
+	if (argc < 2)
+	{
+		cout << "need n";
+		return 1;
+	}
+	else if (atoi(argv[1]) <= 0)
+	{
+		cout << "n need to be greater than 0";
+		return 2;
+	}
+	else
+	{
+		all_num = atoi(argv[1]);
+	}
 	while(cc<all_num){
 		tag = 0;
 		Calculator* calc = new Calculator();
