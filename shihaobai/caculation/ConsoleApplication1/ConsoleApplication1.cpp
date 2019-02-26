@@ -6,23 +6,32 @@
 #include <ctime>
 #include <string>
 #include "ConsoleApplication1.h"
+#include <fstream>
 
 #define random(a,b) (rand()%(b-a+1)+a)   // 随机一个  ab 之间的整数
 
 using namespace std;
 
 Calculator::Calculator() {}
-
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(1, 2);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
+	int prev = number1;
 	while (start <= count) {
 		int operation = random(0, 3);
 		int number2 = random(1, 100);
+		if (operation == 3)
+		{
+			while(prev % number2 != 0)
+			{
+				number2 = random(1, 100);
+			} 
+			
+		}
+		prev = number2;
 		formula += op[operation] + to_string(number2);
 		start++;
 	}
@@ -40,16 +49,13 @@ string Calculator::Solve(string formula) {
 			formulaChar == '*' || formulaChar == '/') {
 			if (j == len - 2 ) {
 				tempStack->push_back(formula.substr(k));
-				cout << formula.substr(k) << "\n";
 			}
 			else {
 				if (k <= j) {
 					tempStack->push_back(formula.substr(k, j + 1-k));
-					cout << formula.substr(k, j + 1-k)<<"\n";
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
-					cout << formulaChar << "\n";
 				}
 				else {
 					char stackChar = operatorStack->top();
@@ -61,7 +67,6 @@ string Calculator::Solve(string formula) {
 						tempStack->push_back(string(1,operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
-						cout << formulaChar << "\n";
 					}
 				}
 			}
@@ -72,11 +77,9 @@ string Calculator::Solve(string formula) {
 		tempStack->push_back(string(1, operatorStack->top()));
 		operatorStack->pop();
 	}
-	cout << "cal\n";
 	stack<string>* calcStack = new stack<string>();
 	for (int i = 0; i < tempStack->size(); i++) {
 		string peekChar = tempStack->at(i);
-		cout << peekChar << "\n";
 		if (peekChar != "+" && peekChar != "-"
 			&& peekChar != "/" && peekChar != "*") {
 			calcStack->push(peekChar);
@@ -109,14 +112,36 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
-int main()
+int main(int argc, char * argv[])
 {
-	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("1*22+2*22");
-	cout << ret << endl;
+	int n,i;
+	if (argc < 2)
+	{
+		cout << "need a para n!";
+		return 1;
+	}
+	else if (atoi(argv[1]) <= 0)
+	{
+		cout << "para n must be greater than 0";
+		return 2;
+	}
+	else
+	{
+		n = atoi(argv[1]);
+	}
+	ofstream fout;
+	fout.open("subject.txt");
+	srand((unsigned int)time(NULL));
+	for (i = 0; i < n; i++)
+	{
+		Calculator* calc = new Calculator();
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve(question);
+		fout << ret << endl;
+	}
 	getchar();
+
 }
 
 
