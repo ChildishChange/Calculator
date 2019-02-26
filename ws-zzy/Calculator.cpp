@@ -100,8 +100,7 @@ string Calculator::Solve(vector<string>& formula)
 	return question + "=" + calcStack->top();
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
 	int n = atoi(argv[1]);
 	if (n < 0) { 
 		printf("error"); 
@@ -122,4 +121,5 @@ int main(int argc, char** argv)
 		outfile << ret << endl;
 	}
 	outfile.close();
+	return 0;
 }
