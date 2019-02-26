@@ -5,17 +5,17 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace CalculatorUnitTest
-{		
-	TEST_CLASS(UnitTest1)
-	{
-	public:
-		
-		TEST_METHOD(TestMethod1_1)
-		{
+{
+    TEST_CLASS(UnitTest1)
+    {
+    public:
+
+        TEST_METHOD(TestMethod1_1)
+        {
             Calculator* calc = new Calculator();
             string ret = calc->Solve("11+22");
             Assert::AreEqual(ret, (string)"11+22=33");
-		}
+        }
 
         TEST_METHOD(TestMethod1_2)
         {
@@ -101,6 +101,6 @@ namespace CalculatorUnitTest
             cout << ret;
             Assert::AreEqual(ret, (string)"11-22*0+100=111");
         }
-        
-	};
+
+    };
 }

@@ -2,9 +2,10 @@
 #include <stack>
 #include <vector>
 #include <iostream>
-#include "stdlib.h"
+#include <cstdlib>
 #include <ctime>
-#include <string>  
+#include <string>
+
 using namespace std;
 
 class Calculator {
