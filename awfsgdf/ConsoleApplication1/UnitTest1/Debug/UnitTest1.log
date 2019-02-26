@@ -1,0 +1,6 @@
+﻿  stdafx.cpp
+  unittest1.cpp
+    正在创建库 C:\Users\Administrator\Desktop\Calculator\awfsgdf\ConsoleApplication1\Debug\UnitTest1.lib 和对象 C:\Users\Administrator\Desktop\Calculator\awfsgdf\ConsoleApplication1\Debug\UnitTest1.exp
+unittest1.obj : error LNK2019: 无法解析的外部符号 "public: __thiscall Calculator::Calculator(void)" (??0Calculator@@QAE@XZ)，该符号在函数 "public: void __thiscall UnitTest1::UnitTest1::TestMethod1(void)" (?TestMethod1@UnitTest1@1@QAEXXZ) 中被引用
+unittest1.obj : error LNK2019: 无法解析的外部符号 "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __thiscall Calculator::Solve(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Solve@Calculator@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V23@@Z)，该符号在函数 "public: void __thiscall UnitTest1::UnitTest1::TestMethod1(void)" (?TestMethod1@UnitTest1@1@QAEXXZ) 中被引用
+C:\Users\Administrator\Desktop\Calculator\awfsgdf\ConsoleApplication1\Debug\UnitTest1.dll : fatal error LNK1120: 2 个无法解析的外部命令
