@@ -1,0 +1,7 @@
+﻿  pch.cpp
+  buaase_0.cpp
+d:\buaase\calculator\chuizi000\buaase_0\buaase_0\buaase_0.cpp(87): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码
+  All 370 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  buaase_0.vcxproj -> D:\BUAASE\Calculator\chuizi000\buaase_0\Release\buaase_0.exe
