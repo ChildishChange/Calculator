@@ -15,18 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="Calculator.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Calculator.h">
+    <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="Calculator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Calculator.cpp">
+    <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

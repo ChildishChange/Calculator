@@ -1,0 +1,8 @@
+﻿  Calculator.cpp
+d:\0code\cppproject\calculator\calculator\diralpo\calculator\calculator\calculator.cpp(129): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码
+  1 of 456 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  Calculator.vcxproj -> D:\0code\CppProject\Calculator\Calculator\Diralpo\Calculator\Release\Calculator.exe
