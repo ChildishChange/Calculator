@@ -1,0 +1,4 @@
+﻿  unittest1.cpp
+  LINK : 没有找到 C:\Users\92389\Desktop\软工\WarmUp\Calculator\rRetr0Git\Calculator\Debug\CalculatorUnitTest.dll 或上一个增量链接没有生成它；正在执行完全链接
+    正在创建库 C:\Users\92389\Desktop\软工\WarmUp\Calculator\rRetr0Git\Calculator\Debug\CalculatorUnitTest.lib 和对象 C:\Users\92389\Desktop\软工\WarmUp\Calculator\rRetr0Git\Calculator\Debug\CalculatorUnitTest.exp
+  CalculatorUnitTest.vcxproj -> C:\Users\92389\Desktop\软工\WarmUp\Calculator\rRetr0Git\Calculator\Debug\CalculatorUnitTest.dll
