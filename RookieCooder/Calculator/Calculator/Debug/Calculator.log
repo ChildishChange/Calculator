@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+f:\softwareengineering\calculator\rookiecooder\calculator\calculator\calculator.cpp(78): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> F:\SoftwareEngineering\Calculator\RookieCooder\Calculator\Debug\Calculator.exe
