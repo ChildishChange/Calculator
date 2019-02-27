@@ -1,0 +1,5 @@
+﻿  stdafx.cpp
+  ConsoleApplication1.cpp
+c:\users\92389\desktop\软工\warmup\calculator\rretr0git\consoleapplication1\consoleapplication1\consoleapplication1.cpp(72): warning C4018: “<”: 有符号/无符号不匹配
+  ConsoleApplication1.vcxproj -> C:\Users\92389\Desktop\软工\WarmUp\Calculator\rRetr0Git\ConsoleApplication1\Debug\ConsoleApplication1.exe
+  ConsoleApplication1.vcxproj -> C:\Users\92389\Desktop\软工\WarmUp\Calculator\rRetr0Git\ConsoleApplication1\Debug\ConsoleApplication1.pdb (Full PDB)
