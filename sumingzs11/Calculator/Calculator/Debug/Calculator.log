@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+d:\software\calculator2\sumingzs11\calculator\calculator\calculator.cpp(86): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> D:\software\Calculator2\sumingzs11\Calculator\Debug\Calculator.exe
