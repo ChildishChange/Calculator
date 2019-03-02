@@ -15,8 +15,8 @@ namespace CalculatorUnitTest
 		TEST_METHOD(TestMethod1)
 		{
 			Calculator* calc = new Calculator();
-			string ret = calc->Solve("11+32");
-			Assert::AreEqual(ret, (string)"11+32=33");
+			string ret = calc->Solve("11+12");
+			Assert::AreEqual(ret, (string)"11+12=23");
 		}
 
 		TEST_METHOD(TestMethod2)
