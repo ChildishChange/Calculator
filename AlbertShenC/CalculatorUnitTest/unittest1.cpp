@@ -4,6 +4,8 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
+// Test, this is origin version
+
 namespace CalculatorUnitTest
 {		
 	TEST_CLASS(UnitTest1)
@@ -13,8 +15,8 @@ namespace CalculatorUnitTest
 		TEST_METHOD(TestMethod1)
 		{
 			Calculator* calc = new Calculator();
-			string ret = calc->Solve("11+22");
-			Assert::AreEqual(ret, (string)"11+22=33");
+			string ret = calc->Solve("11+12");
+			Assert::AreEqual(ret, (string)"11+12=23");
 		}
 
 		TEST_METHOD(TestMethod2)
