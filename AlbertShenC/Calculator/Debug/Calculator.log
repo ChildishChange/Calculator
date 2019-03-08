@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+d:\githubfile\homework-software-engineering\calculator\albertshenc\calculator\calculator.cpp(91): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> D:\GitHubFile\Homework-Software-engineering\Calculator\AlbertShenC\Calculator\Debug\Calculator.exe
