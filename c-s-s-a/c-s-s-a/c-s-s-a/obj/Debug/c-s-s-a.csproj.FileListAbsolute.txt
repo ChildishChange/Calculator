@@ -1,0 +1,7 @@
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\c-s-s-a\bin\Debug\c-s-s-a.exe.config
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\c-s-s-a\bin\Debug\c-s-s-a.exe
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\c-s-s-a\bin\Debug\c-s-s-a.pdb
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\c-s-s-a\obj\Debug\c-s-s-a.csprojAssemblyReference.cache
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\c-s-s-a\obj\Debug\c-s-s-a.csproj.CoreCompileInputs.cache
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\c-s-s-a\obj\Debug\c-s-s-a.exe
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\c-s-s-a\obj\Debug\c-s-s-a.pdb
