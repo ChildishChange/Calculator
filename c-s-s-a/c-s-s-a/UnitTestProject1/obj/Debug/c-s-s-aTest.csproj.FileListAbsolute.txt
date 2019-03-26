@@ -1,0 +1,17 @@
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\obj\Debug\c-s-s-aTest.csprojAssemblyReference.cache
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\obj\Debug\c-s-s-aTest.csproj.CoreCompileInputs.cache
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\obj\Debug\c-s-s-aTest.csproj.CopyComplete
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+E:\专业课\Calculator\c-s-s-a\c-s-s-a\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
