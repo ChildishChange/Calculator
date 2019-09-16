@@ -12,13 +12,15 @@ public class Main {
             String ret = Solve(question);
 			if(ret.equals("FALSE"))
 			{
+				System.out.println(question);
 				System.out.println("You can't answer this question,so we do the next one!");
+				System.out.print('\n');
 			}
 			else
-			{   System.out.println(ret);
-			    System.out.print('\n');
+			{   
 				System.out.println(question);
                 System.out.println(ret);
+				System.out.print('\n');
 			}
 			
 		}
@@ -44,7 +46,7 @@ public class Main {
     public static String Solve(String formula){
         Stack<String> tempStack = new Stack<>();//Store number or operator
         Stack<Character> operatorStack = new Stack<>();//Store operator
-        int len = formula.length();
+        int len = formula.length();//String length?
         int k = 0;
         for(int j = -1; j < len - 1; j++){
             char formulaChar = formula.charAt(j + 1);
@@ -110,8 +112,16 @@ public class Main {
                 }
             }
         }
-		
-			return formula + "=" + calcStack.pop();
+			String str = calcStack.peek();
+			int num = Integer.parseInt(str);
+			double num1 = Integer.parseInt(str);
+			
+			if((num<0)||(num1 != num))
+			{
+				return "FALSE";
+			}
+			
+			return formula + "=" +calcStack.pop();
              
     }
 }
