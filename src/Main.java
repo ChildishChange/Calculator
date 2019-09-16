@@ -1,13 +1,28 @@
 import java.util.Stack;
-
 public class Main {
 
     private static String[] op = { "+", "-", "*", "/" };// Operation set
     public static void main(String[] args) {
-        String question = MakeFormula();
-        System.out.println(question);
-        String ret = Solve(question);
-        System.out.println(ret);
+		int n=(int)(Math.random()*3)+2;
+		int i;
+		for(i=0;i<n;i++)
+		{
+			
+			String question = MakeFormula();//Srting:应用类型||算数运算符的产生
+            String ret = Solve(question);
+			if(ret.equals("FALSE"))
+			{
+				System.out.println("You can't answer this question,so we do the next one!");
+			}
+			else
+			{   System.out.println(ret);
+			    System.out.print('\n');
+				System.out.println(question);
+                System.out.println(ret);
+			}
+			
+		}
+        
     }
 
     public static String MakeFormula(){
@@ -15,7 +30,7 @@ public class Main {
         int count = (int) (Math.random() * 2) + 1; // generate random count
         int start = 0;
         int number1 = (int) (Math.random() * 99) + 1;
-        build.append(number1);
+        build.append(number1);//
         while (start <= count){
             int operation = (int) (Math.random() * 3); // generate operator
             int number2 = (int) (Math.random() * 99) + 1;
@@ -24,7 +39,8 @@ public class Main {
         }
         return build.toString();
     }
-
+	
+	
     public static String Solve(String formula){
         Stack<String> tempStack = new Stack<>();//Store number or operator
         Stack<Character> operatorStack = new Stack<>();//Store operator
@@ -72,6 +88,7 @@ public class Main {
                 if(!calcStack.empty()){
                     a1 = Integer.parseInt(calcStack.pop());
                 }
+				
                 switch (peekChar) {
                     case "+":
                         calcStack.push(String.valueOf(a1 + b1));
@@ -83,11 +100,18 @@ public class Main {
                         calcStack.push(String.valueOf(a1 * b1));
                         break;
                     default:
-                        calcStack.push(String.valueOf(a1 / b1));
-                        break;
+					    
+				        calcStack.push(String.valueOf(a1 / b1));
+						break;
+					
+			
+                        
+                        
                 }
             }
         }
-        return formula + "=" + calcStack.pop();
+		
+			return formula + "=" + calcStack.pop();
+             
     }
 }
