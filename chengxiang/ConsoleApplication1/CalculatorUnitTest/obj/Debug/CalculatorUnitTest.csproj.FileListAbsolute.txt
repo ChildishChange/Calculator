@@ -1,0 +1,9 @@
+C:\Users\成湘\Desktop\Calculator\chengxiang\ConsoleApplication1\CalculatorUnitTest\bin\Debug\CalculatorUnitTest.dll
+C:\Users\成湘\Desktop\Calculator\chengxiang\ConsoleApplication1\CalculatorUnitTest\bin\Debug\CalculatorUnitTest.pdb
+C:\Users\成湘\Desktop\Calculator\chengxiang\ConsoleApplication1\CalculatorUnitTest\bin\Debug\ConsoleApplication1.exe
+C:\Users\成湘\Desktop\Calculator\chengxiang\ConsoleApplication1\CalculatorUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\成湘\Desktop\Calculator\chengxiang\ConsoleApplication1\CalculatorUnitTest\bin\Debug\ConsoleApplication1.pdb
+C:\Users\成湘\Desktop\Calculator\chengxiang\ConsoleApplication1\CalculatorUnitTest\bin\Debug\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\成湘\Desktop\Calculator\chengxiang\ConsoleApplication1\CalculatorUnitTest\obj\Debug\CalculatorUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\成湘\Desktop\Calculator\chengxiang\ConsoleApplication1\CalculatorUnitTest\obj\Debug\CalculatorUnitTest.dll
+C:\Users\成湘\Desktop\Calculator\chengxiang\ConsoleApplication1\CalculatorUnitTest\obj\Debug\CalculatorUnitTest.pdb
