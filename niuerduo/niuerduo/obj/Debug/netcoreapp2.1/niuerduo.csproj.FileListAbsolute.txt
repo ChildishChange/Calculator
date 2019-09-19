@@ -1,0 +1,11 @@
+C:\niuerduo\Calculator\niuerduo\niuerduo\bin\Debug\netcoreapp2.1\niuerduo.deps.json
+C:\niuerduo\Calculator\niuerduo\niuerduo\bin\Debug\netcoreapp2.1\niuerduo.runtimeconfig.json
+C:\niuerduo\Calculator\niuerduo\niuerduo\bin\Debug\netcoreapp2.1\niuerduo.runtimeconfig.dev.json
+C:\niuerduo\Calculator\niuerduo\niuerduo\bin\Debug\netcoreapp2.1\niuerduo.dll
+C:\niuerduo\Calculator\niuerduo\niuerduo\bin\Debug\netcoreapp2.1\niuerduo.pdb
+C:\niuerduo\Calculator\niuerduo\niuerduo\obj\Debug\netcoreapp2.1\niuerduo.csprojAssemblyReference.cache
+C:\niuerduo\Calculator\niuerduo\niuerduo\obj\Debug\netcoreapp2.1\niuerduo.csproj.CoreCompileInputs.cache
+C:\niuerduo\Calculator\niuerduo\niuerduo\obj\Debug\netcoreapp2.1\niuerduo.AssemblyInfoInputs.cache
+C:\niuerduo\Calculator\niuerduo\niuerduo\obj\Debug\netcoreapp2.1\niuerduo.AssemblyInfo.cs
+C:\niuerduo\Calculator\niuerduo\niuerduo\obj\Debug\netcoreapp2.1\niuerduo.dll
+C:\niuerduo\Calculator\niuerduo\niuerduo\obj\Debug\netcoreapp2.1\niuerduo.pdb
