@@ -1,0 +1,6 @@
+G:\软件工程\0201\Calculator\River-flows-in-you\ConsoleApplication3\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe.config
+G:\软件工程\0201\Calculator\River-flows-in-you\ConsoleApplication3\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe
+G:\软件工程\0201\Calculator\River-flows-in-you\ConsoleApplication3\ConsoleApplication3\bin\Debug\ConsoleApplication3.pdb
+G:\软件工程\0201\Calculator\River-flows-in-you\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.csprojResolveAssemblyReference.cache
+G:\软件工程\0201\Calculator\River-flows-in-you\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.exe
+G:\软件工程\0201\Calculator\River-flows-in-you\ConsoleApplication3\ConsoleApplication3\obj\Debug\ConsoleApplication3.pdb
