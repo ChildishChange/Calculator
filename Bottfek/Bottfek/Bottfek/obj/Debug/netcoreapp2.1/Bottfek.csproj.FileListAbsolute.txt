@@ -1,0 +1,11 @@
+C:\Bottfek\Calculator\Bottfek\Bottfek\obj\Debug\netcoreapp2.1\Bottfek.csprojAssemblyReference.cache
+C:\Bottfek\Calculator\Bottfek\Bottfek\obj\Debug\netcoreapp2.1\Bottfek.csproj.CoreCompileInputs.cache
+C:\Bottfek\Calculator\Bottfek\Bottfek\obj\Debug\netcoreapp2.1\Bottfek.AssemblyInfoInputs.cache
+C:\Bottfek\Calculator\Bottfek\Bottfek\obj\Debug\netcoreapp2.1\Bottfek.AssemblyInfo.cs
+C:\Bottfek\Calculator\Bottfek\Bottfek\bin\Debug\netcoreapp2.1\Bottfek.deps.json
+C:\Bottfek\Calculator\Bottfek\Bottfek\bin\Debug\netcoreapp2.1\Bottfek.runtimeconfig.json
+C:\Bottfek\Calculator\Bottfek\Bottfek\bin\Debug\netcoreapp2.1\Bottfek.runtimeconfig.dev.json
+C:\Bottfek\Calculator\Bottfek\Bottfek\bin\Debug\netcoreapp2.1\Bottfek.dll
+C:\Bottfek\Calculator\Bottfek\Bottfek\bin\Debug\netcoreapp2.1\Bottfek.pdb
+C:\Bottfek\Calculator\Bottfek\Bottfek\obj\Debug\netcoreapp2.1\Bottfek.dll
+C:\Bottfek\Calculator\Bottfek\Bottfek\obj\Debug\netcoreapp2.1\Bottfek.pdb
