@@ -9,16 +9,24 @@ namespace Calculator
 {
      class Program
      {
-          private static Random rd = new Random();
           static void Main(string[] args)
           {
+               Calculator c = new Calculator();
+          }
+     }
+
+     public class Calculator
+     {
+          public Calculator() {
                WriteHomeWork();
           }
+          private static Random rd = new Random();
+          
 
           public static void WriteHomeWork()
           {
                StringBuilder resultExp = new StringBuilder();
-               Console.Write("请输入生成四则混合运算个数：");
+               Console.WriteLine("请输入生成四则混合运算个数：");
                int num=int.Parse(Console.ReadLine());
                string expExample="";
                int k = 0;
@@ -71,10 +79,10 @@ namespace Calculator
                int a = rd.Next(3, 5);
                for(int i = 0; i < a; i++)
                {
-                    int b = rd.Next(1, 10);
+                    int b = rd.Next(1, 100);
                     s += b.ToString();
                     if (i == a - 1) break;
-                    int c = rd.Next(0,3);
+                    int c = rd.Next(0,4);
                     if (c == 0) s += '+';
                     if (c == 1) s += '-';
                     if (c == 2) s += '*';
@@ -155,5 +163,7 @@ namespace Calculator
 
           }
      }
+          
+     
 
 }
