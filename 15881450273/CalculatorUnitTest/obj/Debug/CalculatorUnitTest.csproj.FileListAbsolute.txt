@@ -1,0 +1,9 @@
+C:\Users\chao\Desktop\Calculator\15881450273\CalculatorUnitTest\obj\Debug\CalculatorUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\chao\Desktop\Calculator\15881450273\CalculatorUnitTest\bin\Debug\CalculatorUnitTest.dll
+C:\Users\chao\Desktop\Calculator\15881450273\CalculatorUnitTest\bin\Debug\CalculatorUnitTest.pdb
+C:\Users\chao\Desktop\Calculator\15881450273\CalculatorUnitTest\bin\Debug\calculation.dll
+C:\Users\chao\Desktop\Calculator\15881450273\CalculatorUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\chao\Desktop\Calculator\15881450273\CalculatorUnitTest\bin\Debug\calculation.pdb
+C:\Users\chao\Desktop\Calculator\15881450273\CalculatorUnitTest\bin\Debug\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\chao\Desktop\Calculator\15881450273\CalculatorUnitTest\obj\Debug\CalculatorUnitTest.dll
+C:\Users\chao\Desktop\Calculator\15881450273\CalculatorUnitTest\obj\Debug\CalculatorUnitTest.pdb

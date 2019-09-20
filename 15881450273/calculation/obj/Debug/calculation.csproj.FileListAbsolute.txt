@@ -1,0 +1,56 @@
+C:\Users\DL Zhang\Desktop\calculation\calculation\bin\Debug\calculation.exe.config
+C:\Users\DL Zhang\Desktop\calculation\calculation\bin\Debug\calculation.exe
+C:\Users\DL Zhang\Desktop\calculation\calculation\bin\Debug\calculation.pdb
+C:\Users\DL Zhang\Desktop\calculation\calculation\obj\Debug\calculation.csprojResolveAssemblyReference.cache
+C:\Users\DL Zhang\Desktop\calculation\calculation\obj\Debug\calculation.Form1.resources
+C:\Users\DL Zhang\Desktop\calculation\calculation\obj\Debug\calculation.Properties.Resources.resources
+C:\Users\DL Zhang\Desktop\calculation\calculation\obj\Debug\calculation.csproj.GenerateResource.Cache
+C:\Users\DL Zhang\Desktop\calculation\calculation\obj\Debug\calculation.exe
+C:\Users\DL Zhang\Desktop\calculation\calculation\obj\Debug\calculation.pdb
+C:\Users\dlzhang\Desktop\calculation\calculation\bin\Debug\calculation.exe.config
+C:\Users\dlzhang\Desktop\calculation\calculation\obj\Debug\calculation.exe
+C:\Users\dlzhang\Desktop\calculation\calculation\obj\Debug\calculation.pdb
+C:\Users\dlzhang\Desktop\calculation\calculation\bin\Debug\calculation.exe
+C:\Users\dlzhang\Desktop\calculation\calculation\bin\Debug\calculation.pdb
+C:\Users\dlzhang\Desktop\calculation\calculation\obj\Debug\calculation.csprojResolveAssemblyReference.cache
+C:\Users\dlzhang\Desktop\calculation\calculation\obj\Debug\calculation.Form1.resources
+C:\Users\dlzhang\Desktop\calculation\calculation\obj\Debug\calculation.Properties.Resources.resources
+C:\Users\dlzhang\Desktop\calculation\calculation\obj\Debug\calculation.csproj.GenerateResource.Cache
+C:\Users\DL Zhang\Desktop\计算题\calculation_V 1\calculation\bin\Debug\calculation.exe.config
+C:\Users\DL Zhang\Desktop\计算题\calculation_V 1\calculation\obj\Debug\calculation.exe
+C:\Users\DL Zhang\Desktop\计算题\calculation_V 1\calculation\obj\Debug\calculation.pdb
+C:\Users\DL Zhang\Desktop\计算题\calculation_V 1\calculation\bin\Debug\calculation.exe
+C:\Users\DL Zhang\Desktop\计算题\calculation_V 1\calculation\bin\Debug\calculation.pdb
+C:\Users\DL Zhang\Desktop\计算题\calculation_V 1\calculation\obj\Debug\calculation.csprojResolveAssemblyReference.cache
+C:\Users\DL Zhang\Desktop\计算题\calculation_V 1\calculation\obj\Debug\calculation.Form1.resources
+C:\Users\DL Zhang\Desktop\计算题\calculation_V 1\calculation\obj\Debug\calculation.Properties.Resources.resources
+C:\Users\DL Zhang\Desktop\计算题\calculation_V 1\calculation\obj\Debug\calculation.csproj.GenerateResource.Cache
+C:\Users\cyh\Desktop\Arithmetic-master\calculation_V 1\calculation\bin\Debug\calculation.exe.config
+C:\Users\cyh\Desktop\Arithmetic-master\calculation_V 1\calculation\obj\Debug\calculation.exe
+C:\Users\cyh\Desktop\Arithmetic-master\calculation_V 1\calculation\obj\Debug\calculation.pdb
+C:\Users\cyh\Desktop\calculation_\calculation\bin\Debug\calculation.exe.config
+C:\Users\cyh\Desktop\calculation_\calculation\obj\Debug\calculation.exe
+C:\Users\cyh\Desktop\calculation_\calculation\obj\Debug\calculation.pdb
+C:\Users\cyh\Desktop\calculation_\calculation\bin\Debug\calculation.exe
+C:\Users\cyh\Desktop\calculation_\calculation\bin\Debug\calculation.pdb
+C:\Users\cyh\Desktop\calculation_\calculation\obj\Debug\calculation.csprojResolveAssemblyReference.cache
+C:\Users\cyh\Desktop\calculation_\calculation\obj\Debug\calculation.Form1.resources
+C:\Users\cyh\Desktop\calculation_\calculation\obj\Debug\calculation.Properties.Resources.resources
+C:\Users\cyh\Desktop\calculation_\calculation\obj\Debug\calculation.csproj.GenerateResource.Cache
+C:\Users\chao\Desktop\Arithmetic-master\calculation_\calculation\bin\Debug\calculation.exe.config
+C:\Users\chao\Desktop\Arithmetic-master\calculation_\calculation\obj\Debug\calculation.exe
+C:\Users\chao\Desktop\Arithmetic-master\calculation_\calculation\obj\Debug\calculation.pdb
+C:\Users\chao\Desktop\Arithmetic-master\calculation_\calculation\bin\Debug\calculation.exe
+C:\Users\chao\Desktop\Arithmetic-master\calculation_\calculation\bin\Debug\calculation.pdb
+C:\Users\chao\Desktop\Arithmetic-master\calculation_\calculation\obj\Debug\calculation.csprojResolveAssemblyReference.cache
+C:\Users\chao\Desktop\Arithmetic-master\calculation_\calculation\obj\Debug\calculation.From1.resources
+C:\Users\chao\Desktop\Arithmetic-master\calculation_\calculation\obj\Debug\calculation.Properties.Resources.resources
+C:\Users\chao\Desktop\Arithmetic-master\calculation_\calculation\obj\Debug\calculation.csproj.GenerateResource.Cache
+C:\Users\chao\Desktop\Calculator\15881450273\calculation\obj\Debug\calculation.pdb
+C:\Users\chao\Desktop\Calculator\15881450273\calculation\bin\Debug\calculation.pdb
+C:\Users\chao\Desktop\Calculator\15881450273\calculation\obj\Debug\calculation.From1.resources
+C:\Users\chao\Desktop\Calculator\15881450273\calculation\obj\Debug\calculation.Properties.Resources.resources
+C:\Users\chao\Desktop\Calculator\15881450273\calculation\obj\Debug\calculation.csproj.GenerateResource.Cache
+C:\Users\chao\Desktop\Calculator\15881450273\calculation\bin\Debug\calculation.exe.config
+C:\Users\chao\Desktop\Calculator\15881450273\calculation\bin\Debug\calculation.exe
+C:\Users\chao\Desktop\Calculator\15881450273\calculation\obj\Debug\calculation.exe
