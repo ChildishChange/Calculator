@@ -1,0 +1,23 @@
+{
+  "name": "Calculator",
+  "version": "1.0.0",
+  "description": "阿超的四则运算生成器 v1.0(Java版本)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BetterZxx/Calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BetterZxx/Calculator/issues"
+  },
+  "homepage": "https://github.com/BetterZxx/Calculator#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}

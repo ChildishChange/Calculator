@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>阿超的四则运算</title>
+  <script src="./FileSaver.js"></script>
+  <script type="text/javascript">
+    function getCal(n){
+      //获取a到b的随机数
+      let getRandomNum = (a,b)=>~~(Math.random()*(b-a)+a)
+      //判断一个数是否为小数
+      let isFloat = (x)=>String(x).indexOf('.')<0?false:true
+      //获取初始数据
+      function getInitData (){
+        let data = []
+        while(data.length<n*4){
+          let arr = []
+          let t = Math.random()>0.5?2:3
+          for(var i = 0;i<t;i++){
+            let s = ['+','-','*','/'].sort((a,b)=>Math.random()-0.5)[0]
+            let after = getRandomNum(10,40)
+            let before = getRandomNum(10,40)*after
+            s === '/'?arr.push({s,before,after}):arr.push({s,before:getRandomNum(10,100),after})
+          }
+          data.push(arr)
+        }
+        console.log(data)
+        return data
+      }
+      //获取处理后的数据
+      function getFinalData(initData){
+        return initData.map(item=>{
+          let tArr =  item.reduce((totle,current,index,arr)=>{
+          let {before,after,s} = current
+          if(index===arr.length-1)
+            return typeof totle[totle.length-1] === 'number'?totle.concat([s,after]):totle.concat([before,s,after])
+          else
+            return s==='/'?totle.concat([before,s,after]):typeof totle[totle.length-1] === 'number'?totle.concat([s]):totle.concat([before,s])
+        },[])
+        return tArr.join('')+'='+eval(tArr.join(''))
+        }).filter((item)=>!isFloat(item.split('=')[1]))
+      }
+      return getFinalData(getInitData()).slice(0,n)
+    }
+    console.log(getCal(100))
+  </script>
+  <style>
+    #calTa{
+      width: 200px;
+      min-height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button id="btn">生成四则运算</button><br/>
+    <input id="calInput" type="text" placeholder="请输入生成题数"><br/>
+    <textarea id="calTa" cols="30" rows="10"></textarea><br/>
+    <button id='btnTxt'>导出txt</button>
+    <script>
+      var handleClick = ()=>{
+        calTa.value = getCal(calInput.value).reduce((a,b)=>{
+          return a +' \r\n'+b;
+        },'')
+      }
+      var handleTxtClick = ()=>{
+        var data = calTa.value
+        var blob = new Blob([data],{type:'text/plain;charset=utf-8'})
+        saveAs(blob,'cal.txt')
+      }
+      btn.addEventListener('click',handleClick)
+      btnTxt.addEventListener('click',handleTxtClick)
+    </script>
+  </div>
+
+  
+</body>
+</html>
