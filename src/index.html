@@ -20,9 +20,9 @@
           let t = Math.random()>0.5?2:3
           for(var i = 0;i<t;i++){
             let s = ['+','-','*','/'].sort((a,b)=>Math.random()-0.5)[0]
-            let after = getRandomNum(10,40)
-            let before = getRandomNum(10,40)*after
-            s === '/'?arr.push({s,before,after}):arr.push({s,before:getRandomNum(10,100),after})
+            let after = getRandomNum(2,10)
+            let before = getRandomNum(2,10)*after
+            s === '/'?arr.push({s,before,after}):arr.push({s,before:getRandomNum(10,100),after:getRandomNum(2,100)})
           }
           data.push(arr)
         }
@@ -40,7 +40,7 @@
             return s==='/'?totle.concat([before,s,after]):typeof totle[totle.length-1] === 'number'?totle.concat([s]):totle.concat([before,s])
         },[])
         return tArr.join('')+'='+eval(tArr.join(''))
-        }).filter((item)=>!isFloat(item.split('=')[1]))
+        }).filter((item)=>!isFloat(item.split('=')[1])).filter((item)=>+item.split('=')[1]>0)
       }
       return getFinalData(getInitData()).slice(0,n)
     }
