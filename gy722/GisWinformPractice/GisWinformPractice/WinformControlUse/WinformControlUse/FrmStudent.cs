@@ -16,6 +16,8 @@ using System.Collections;
 namespace WinformControlUse
 {
     public partial class FrmStudent : Form
+       
+
     {
         List<Student> stuList;
 
@@ -93,12 +95,8 @@ namespace WinformControlUse
         private static List<Student> studengList;
         public void btnAddStu_Click(object sender, EventArgs e)
         {
-            studengList = new List<Student>();
-            Console.WriteLine("请输入学生的姓名：");
-            Student stu85 = new Student();
-            Console.Write("姓名：");
-            studengList.Add(stu85);
-            Console.WriteLine("添加成功！");
+            Form2 f = new Form2();
+            f.Show();
 
        
         }

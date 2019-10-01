@@ -28,4 +28,4 @@ D:\GisWinformPractice1\GisWinformPractice\WinformControlUse\WinformControlUse\ob
 D:\GisWinformPractice1\GisWinformPractice\WinformControlUse\WinformControlUse\obj\x86\Debug\WinformControlUse.csproj.CopyComplete
 D:\GisWinformPractice1\GisWinformPractice\WinformControlUse\WinformControlUse\obj\x86\Debug\WinformControlUse.exe
 D:\GisWinformPractice1\GisWinformPractice\WinformControlUse\WinformControlUse\obj\x86\Debug\WinformControlUse.pdb
-D:\GisWinformPractice1\GisWinformPractice\WinformControlUse\WinformControlUse\obj\x86\Debug\WinformControlUse.Form1.resources
+D:\GisWinformPractice1\GisWinformPractice\WinformControlUse\WinformControlUse\obj\x86\Debug\WinformControlUse.Form2.resources
