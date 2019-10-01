@@ -1,0 +1,16 @@
+E:\GisWinformPractice\WinformControlUse\DataBase\bin\Debug\DataBase.dll
+E:\GisWinformPractice\WinformControlUse\DataBase\bin\Debug\DataBase.pdb
+E:\GisWinformPractice\WinformControlUse\DataBase\bin\Debug\Entity.dll
+E:\GisWinformPractice\WinformControlUse\DataBase\bin\Debug\Entity.pdb
+E:\GisWinformPractice\WinformControlUse\DataBase\obj\Debug\DataBase.csprojResolveAssemblyReference.cache
+E:\GisWinformPractice\WinformControlUse\DataBase\obj\Debug\DataBase.dll
+E:\GisWinformPractice\WinformControlUse\DataBase\obj\Debug\DataBase.pdb
+C:\Users\mac\Desktop\GisWinformPractice\WinformControlUse\DataBase\bin\Debug\DataBase.dll
+C:\Users\mac\Desktop\GisWinformPractice\WinformControlUse\DataBase\bin\Debug\DataBase.pdb
+C:\Users\mac\Desktop\GisWinformPractice\WinformControlUse\DataBase\bin\Debug\Entity.dll
+C:\Users\mac\Desktop\GisWinformPractice\WinformControlUse\DataBase\bin\Debug\Entity.pdb
+C:\Users\mac\Desktop\GisWinformPractice\WinformControlUse\DataBase\obj\Debug\DataBase.csprojAssemblyReference.cache
+C:\Users\mac\Desktop\GisWinformPractice\WinformControlUse\DataBase\obj\Debug\DataBase.csproj.CoreCompileInputs.cache
+C:\Users\mac\Desktop\GisWinformPractice\WinformControlUse\DataBase\obj\Debug\DataBase.csproj.CopyComplete
+C:\Users\mac\Desktop\GisWinformPractice\WinformControlUse\DataBase\obj\Debug\DataBase.dll
+C:\Users\mac\Desktop\GisWinformPractice\WinformControlUse\DataBase\obj\Debug\DataBase.pdb
