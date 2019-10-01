@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
 using DaoLayer;
 using Entity;
 using System.Threading;
@@ -21,18 +20,20 @@ namespace WinformControlUse
         {
             InitializeComponent();
         }
-        private static List<Student> studengList;
+
         private void button1_Click(object sender, EventArgs e)
         {
-            studengList = new List<Student>();
-            Console.WriteLine("请输入学生的姓名：");
-            Student stu85 = new Student();
-            Console.Write("姓名：");
-            Console.WriteLine("请输入学生的学号：");
-            Console.Write("学号：");
-            studengList.Add(stu85);
-            Console.WriteLine("添加成功！");
-        }
-  
+
+            if
+             (textBox1.Text == "王静宜" &&
+              textBox2.Text == "123456")
+                Console.WriteLine("登录成功！");
+            if
+            (textBox1.Text == "顾毓" &&
+            textBox2.Text == "123456")
+                Console.WriteLine("登录成功！");
+            FrmStudent h =new FrmStudent();
+            h.Show();
         }
     }
+}

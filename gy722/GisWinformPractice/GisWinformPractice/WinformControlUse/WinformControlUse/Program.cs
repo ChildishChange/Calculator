@@ -13,10 +13,13 @@ namespace WinformControlUse
         [STAThread]
         static void Main()
         {
+            Application.Run(new Form1());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmStudent());
+          
             Application.Run(new Form2 ());
+
         }
     }
 }

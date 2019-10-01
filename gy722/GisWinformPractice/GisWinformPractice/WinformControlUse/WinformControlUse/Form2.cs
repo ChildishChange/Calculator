@@ -33,36 +33,33 @@ namespace WinformControlUse
         {
 
         }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            studengList = new List<Student>();
+            Console.WriteLine("请输入学生的姓名：");
+            string 姓名 = textBox1.Text;
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            studengList = new List<Student>();
+            Console.WriteLine("请输入学生的学号：");
+            string 学号 = textBox2.Text;
+        }
         private static List<Student> studengList;
         private void button2_Click(object sender, EventArgs e)
         {
-             
+           string  StudentDataset="insert  studengList(' " +label3  + " ','" + label4 + " )";
             studengList = new List<Student>();
-            Console.WriteLine("请输入学生的姓名：");
-            Student stu85 = new Student();
-            Console.Write("姓名：");
-            Console.WriteLine("请输入学生的学号：");
-            Console.Write("学号：");
+            Student stu85 = new Student("+ label3 +", " + label4 + ");
             studengList.Add(stu85);
             Console.WriteLine("添加成功！");
         }
 
-        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            studengList = new List<Student>();
-            Console.WriteLine("请输入学生的姓名：");
-            Student stu85 = new Student();
-            Console.Write("姓名：");
-            studengList.Add(stu85);
-        }
+      
 
-        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine("请输入学生的学号：");
-            Student stu85 = new Student();
-            Console.Write("学号：");
-            studengList.Add(stu85);
-        }
+      
     }
     }
 

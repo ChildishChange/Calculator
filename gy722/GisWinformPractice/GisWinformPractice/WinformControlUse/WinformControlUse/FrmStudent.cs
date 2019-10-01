@@ -92,6 +92,7 @@ namespace WinformControlUse
         {
             timerCallName.Stop();
         }
+       
         private static List<Student> studengList;
         public void btnAddStu_Click(object sender, EventArgs e)
         {
