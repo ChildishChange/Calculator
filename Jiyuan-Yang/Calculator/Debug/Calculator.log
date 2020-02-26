@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+F:\CourseFiles\SE\exps\Calculator\Jiyuan-Yang\Calculator\Calculator.cpp(74,20): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> F:\CourseFiles\SE\exps\Calculator\Jiyuan-Yang\Calculator\Debug\Calculator.exe
