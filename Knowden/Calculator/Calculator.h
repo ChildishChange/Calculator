@@ -10,6 +10,8 @@ using namespace std;
 class Calculator {
 private:
 	string op[4] = { "+", "-", "*", "/" };
+
+	vector<int>* getAllFactors(int number);
 public:
 	Calculator();
 	string MakeFormula();
