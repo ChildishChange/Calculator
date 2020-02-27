@@ -8,6 +8,8 @@
 #include <ctime>
 #include <string>
 #include "Calculator.h"
+#include <fstream>
+#include <cctype>
 
 #define random(a,b) (rand()%(b-a+1)+a)
 
@@ -16,7 +18,6 @@ using namespace std;
 Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
-	srand((unsigned int)time(NULL));
 	string formula = "";
 	// 修改了随机数生成的范围
 	// srand((unsigned int)time(NULL));
@@ -134,13 +135,26 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
-int main() {
-	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve(question);
-	cout << ret << endl;
+int main(int argc, char *argv[]) {
+	srand((unsigned int)time(NULL));
+	if (argc <= 1) {
+		cout << "请传入生成题目数量的参数" << endl;
+	}
+	else {
+		ofstream output("subject.txt");
+		int num = atoi(argv[1]);
+		Calculator* calc = new Calculator();
+		string question;
+		string ret;
+		for (int i = 0; i < num; i++) {
+			question = calc->MakeFormula();
+			ret = calc->Solve(question);
+			output << ret << endl;
+		}
+		output.close();
+		cout << "已生成" << num << "道题目" << endl;
+	}
 	getchar();
 }
 
-
+// metric learning
