@@ -15,7 +15,7 @@ Calculator::Calculator() {}
 string Calculator::MakeFormula() {
 	string formula = "";
 	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(1, 2);			//Bug1: 运算符数量 Expected:2~3 Actual:2~4
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
@@ -41,7 +41,7 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
+				if (k <= j) {								// Bug2: 无法正常让长度为1的数字入栈
 					tempStack->push_back(formula.substr(k, j + 1));
 				}
 				if (operatorStack->empty()) {
@@ -54,7 +54,7 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(string(1, operatorStack->top()));   //Bug3: to_string方法不适用于char类型
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -107,9 +107,8 @@ int main()
 	Calculator* calc = new Calculator();
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("11+22");
+	string ret = calc->Solve("5/5+2");
 	cout << ret << endl;
-	getchar();
 }
 
 
