@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+.Pandapan-Buaa/Calculator/vs/
+.vs/
