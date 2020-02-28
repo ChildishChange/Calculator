@@ -9,7 +9,6 @@ namespace CalculatorUnitTest
 	TEST_CLASS(CalculatorUnitTest)
 	{
 	public:
-		
 		TEST_METHOD(Test1)
 		{
 			Calculator* calc = new Calculator();
@@ -21,6 +20,12 @@ namespace CalculatorUnitTest
 			Calculator* calc = new Calculator();
 			string ret = calc->Solve("87/1*2/1");
 			Assert::AreEqual(ret, (string)"87/1*2/1=174");
+		}
+		TEST_METHOD(Test3)
+		{
+			Calculator* calc = new Calculator();
+			string ret = calc->Solve("36-20/2+28");
+			Assert::AreEqual(ret, (string)"36-20/2+28=54");
 		}
 	};
 }
