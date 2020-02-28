@@ -1,3 +1,3 @@
 ﻿  Calculator.cpp
-D:\code\BUAA\software_engineer\Calculator\Leomiku\Calculator\Calculator\Calculator.cpp(35,28): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\BUAA\software_engineer\Calculator\Leomiku\Calculator\Calculator\Calculator.cpp(34,28): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   Calculator.vcxproj -> D:\code\BUAA\software_engineer\Calculator\Leomiku\Calculator\x64\Debug\Calculator.exe
