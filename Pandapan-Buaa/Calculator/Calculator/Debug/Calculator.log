@@ -1,3 +1,3 @@
 ﻿  Calculator.cpp
-D:\cpp_projects\Calculator\Pandapan-Buaa\Calculator\Calculator\Calculator.cpp(74,20): warning C4018: “<”: 有符号/无符号不匹配
+D:\cpp_projects\Calculator\Pandapan-Buaa\Calculator\Calculator\Calculator.cpp(76,20): warning C4018: “<”: 有符号/无符号不匹配
   Calculator.vcxproj -> D:\cpp_projects\Calculator\Pandapan-Buaa\Calculator\Debug\Calculator.exe
