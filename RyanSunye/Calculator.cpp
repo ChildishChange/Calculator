@@ -17,10 +17,22 @@ string Calculator::MakeFormula() {
     string formula;
 
     int count = random(2, 3);
-    formula += to_string(random(0, 100));
+    int number = random(0, 100);
+    formula += to_string(number);
     for(int i=0;i<count;i++) {
         int operation = random(0, 3);
-        formula += op[operation] + to_string(random(0, 100));
+        if (operation==3) {
+            vector<int> s;
+            for(int j=1;j<=sqrt(number);j++) {
+                if (number%j==0) s.push_back(j);
+            }
+            s.push_back(number);
+            number = s[random(0, s.size()-1)];
+        } else {
+            number = random(0,100);
+        }
+
+        formula += op[operation] + to_string(number);
     }
 
     return formula;
