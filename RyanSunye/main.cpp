@@ -21,8 +21,8 @@ int main() {
     for(int i=0;i<n;i++){
         string question = calc->MakeFormula();
         string ret = calc->Solve(question);
-        cout << ret << endl;
-        out << ret << endl;
+//        cout << ret << endl;
+//        out << ret << endl;
     }
 
     out.close();

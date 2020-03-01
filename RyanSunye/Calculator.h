@@ -17,6 +17,8 @@
 
 using namespace std;
 
+#define DEBUG 1
+
 class Calculator {
 private:
     string op[4] = { "+", "-", "*", "/" };

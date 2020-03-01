@@ -6,6 +6,7 @@
 #include <string>
 #include "Calculator.h"
 #include <random>
+#include <cassert>
 
 using namespace std;
 default_random_engine e;
@@ -38,71 +39,70 @@ string Calculator::MakeFormula() {
     return formula;
 };
 
+bool is_add(char op){
+    return op=='+'||op=='-';
+}
+
+bool is_mul(char op){
+    return op=='*'||op=='/';
+}
+
+int excute(int num1, int num2, char op) {
+    switch (op){
+        case '+':
+            return num1+num2;
+        case '-':
+            return num1-num2;
+        case '*':
+            return num1*num2;
+        case '/':
+            return num1/num2;
+        default:
+            cout<<"no such operation!"<<endl;
+            exit(1111);
+    }
+}
+
 string Calculator::Solve(string formula) {
-    auto *tempStack = new vector<string>();
-    auto *operatorStack = new stack<char>();
-    int len = formula.length();
-    int k = 0;
-    for (int j = -1; j < len - 1; j++) {
-        char formulaChar = formula[j + 1];
-        if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
-            formulaChar == '*' || formulaChar == '/') {
-            if (j == len - 2) {
-                tempStack->push_back(formula.substr(k));
-            } else {
-                if (k < j) {
-                    tempStack->push_back(formula.substr(k, j + 1));
+    stack<string> tmp_stack;
+    stack<int> num_stack;
+    stack<char> op_stack;
+
+    if(DEBUG)cout<<formula<<endl;
+    int j=0;
+    for(int i=0;i<formula.size();i++) {
+        if(is_add(formula[i])||is_mul(formula[i])) {
+            num_stack.push(stoi(formula.substr(j,i-j)));
+            j=i+1;
+
+            if(!op_stack.empty())
+                if (is_add(formula[i])||(is_mul(formula[i])&&is_mul(op_stack.top()))){
+                    char operation = op_stack.top();
+                    op_stack.pop();
+                    int num2 = num_stack.top();
+                    num_stack.pop();
+                    int num1 = num_stack.top();
+                    num_stack.pop();
+                    num_stack.push(excute(num1, num2, operation));
+                    if(DEBUG)cout<<num1<<operation<<num2<<'='<<excute(num1, num2, operation)<<endl;
                 }
-                if (operatorStack->empty()) {
-                    operatorStack->push(formulaChar);
-                } else {
-                    char stackChar = operatorStack->top();
-                    if ((stackChar == '+' || stackChar == '-')
-                        && (formulaChar == '*' || formulaChar == '/')) {
-                        operatorStack->push(formulaChar);
-                    } else {
-                        tempStack->push_back(to_string(operatorStack->top()));
-                        operatorStack->pop();
-                        operatorStack->push(formulaChar);
-                    }
-                }
-            }
-            k = j + 2;
+            op_stack.push(formula[i]);
+
         }
     }
-    while (!operatorStack->empty()) {
-        tempStack->push_back(string(1, operatorStack->top()));
-        operatorStack->pop();
+    num_stack.push(stoi(formula.substr(j, formula.size()-j)));
+    while(!op_stack.empty()){
+        char operation = op_stack.top();
+        op_stack.pop();
+        int num2 = num_stack.top();
+        num_stack.pop();
+        int num1 = num_stack.top();
+        num_stack.pop();
+        num_stack.push(excute(num1, num2, operation));
+        if(DEBUG)cout<<num1<<operation<<num2<<'='<<excute(num1, num2, operation)<<endl;
     }
-    auto *calcStack = new stack<string>();
-    for (int i = 0; i < tempStack->size(); i++) {
-        string peekChar = tempStack->at(i);
-        if (peekChar != "+" && peekChar != "-"
-            && peekChar != "/" && peekChar != "*") {
-            calcStack->push(peekChar);
-        } else {
-            int a1 = 0;
-            int b1 = 0;
-            if (!calcStack->empty()) {
-                b1 = stoi(calcStack->top());
-                calcStack->pop();
-            }
-            if (!calcStack->empty()) {
-                a1 = stoi(calcStack->top());
-                calcStack->pop();
-            }
-            if (peekChar == "+") {
-                calcStack->push(to_string(a1 + b1));
-            } else if (peekChar == "-") {
-                calcStack->push(to_string(a1 - b1));
-            } else if (peekChar == "*") {
-                calcStack->push(to_string(a1 * b1));
-            } else if (peekChar == "/") {
-                calcStack->push(to_string(a1 / b1));
-            }
-        }
-    }
-    return formula + "=" + calcStack->top();
+
+    return formula + '='+ to_string(num_stack.top());
 }
 
 
