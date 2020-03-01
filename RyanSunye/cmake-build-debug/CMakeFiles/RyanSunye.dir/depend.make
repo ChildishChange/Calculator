@@ -4,3 +4,6 @@
 CMakeFiles/RyanSunye.dir/Calculator.cpp.obj: ../Calculator.cpp
 CMakeFiles/RyanSunye.dir/Calculator.cpp.obj: ../Calculator.h
 
+CMakeFiles/RyanSunye.dir/main.cpp.obj: ../Calculator.h
+CMakeFiles/RyanSunye.dir/main.cpp.obj: ../main.cpp
+

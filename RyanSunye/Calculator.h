@@ -13,6 +13,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <random>
+
 using namespace std;
 
 class Calculator {
@@ -24,5 +26,6 @@ public:
     string Solve(string formula);
 };
 
+extern default_random_engine e;
 
 #endif //RYANSUNYE_CALCULATOR_H

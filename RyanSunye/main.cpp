@@ -3,13 +3,27 @@
 //
 
 #include "Calculator.h"
+#include <iostream>
+#include <fstream>
+#include <random>
 
-int main()
-{
-    Calculator* calc = new Calculator();
-    string question = calc->MakeFormula();
-    cout << question << endl;
-    string ret = calc->Solve("11+22");
-    cout << ret << endl;
-    getchar();
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+
+    ofstream out("subject.txt");
+    auto* calc = new Calculator();
+
+    e.seed((unsigned int)time(nullptr));
+
+    for(int i=0;i<n;i++){
+        string question = calc->MakeFormula();
+        string ret = calc->Solve(question);
+        cout << ret << endl;
+        out << ret << endl;
+    }
+
+    out.close();
 }

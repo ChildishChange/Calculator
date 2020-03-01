@@ -6,7 +6,7 @@
 #include "catch.hpp"
 #include "../Calculator.h"
 
-TEST_CASE( "Factorials are computed", "[factorial]" ) {
+TEST_CASE( "Solving problem", "[Calculator]" ) {
     auto* calc = new Calculator();
     string ret = calc->Solve("11+22");
     REQUIRE(ret=="11+22=33");

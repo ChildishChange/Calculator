@@ -8,3 +8,4 @@ add_executable(RyanSunye Calculator.cpp Calculator.h main.cpp)
 add_executable(test test/Factest.cpp test/catch.hpp)
 
 add_executable(test1 test/test1.cpp test/catch.hpp Calculator.h Calculator.cpp)
+
