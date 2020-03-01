@@ -1,32 +1,47 @@
-﻿
-
-
-#include <stack>
+﻿#include <stack>
 #include <vector>
 #include <iostream>
 #include "stdlib.h"
 #include <ctime>
 #include <string>
 #include "Calculator.h"
+#include <fstream>
 
 #define random(a,b) (rand()%(b-a+1)+a)
 
 using namespace std;
 
+int getFactor(int num) {
+	vector<int> factors;
+	for (int i = 1; i <= num; i++) {
+		if (num % i == 0) {
+			factors.push_back(i);
+		}
+	}
+	int select = random(0, factors.size()-1);
+	return factors[select];
+}
+
 Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(1, 2);
 	int start = 0;
-	int number1 = random(1, 100);
+	int number1 = random(1, 99);
 	formula += to_string(number1);
 	while (start <= count) {
 		int operation = random(0, 3);
-		int number2 = random(1, 100);
+		int number2;
+		if (operation == 3) {
+			number2 = getFactor(number1);
+		}
+		else {
+			number2 = random(1, 99);
+		}
 		formula += op[operation] + to_string(number2);
 		start++;
+		number1 = number2;
 	}
 	return formula;
 };
@@ -105,14 +120,34 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
+	//srand((unsigned int)time(NULL));
+	//Calculator* calc = new Calculator();
+	//string question = "";
+	///*
+	//string ret = calc->Solve("11+22");
+	//cout << ret << endl;
+	//getchar();
+	//*/
+	//ofstream file("subject.txt", ios::out);
+
+	//int i = 0;
+	//while (i < atoi(argv[1])) {
+	//	question = calc->MakeFormula();
+	//	file << question << endl;
+	//	i++;
+	//}
+	//file.close();
+	//return 0;
+
+	for (int i = 0; i < 10000000; i++) {
+		Calculator* calc = new Calculator();
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve("11+22");
+		cout << ret << endl;
+	}
 }
 
 
