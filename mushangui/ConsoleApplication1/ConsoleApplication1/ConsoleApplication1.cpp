@@ -40,6 +40,9 @@ string Calculator::Solve(string formula) {
 		char formulaChar = formula[j + 1];
 		if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
 			formulaChar == '*' || formulaChar == '/') {
+			if ((*tempStack).size() == 0) {
+				tempStack->push_back(formula.substr(k,j+1));
+			}
 			if (j == len - 2) {
 				tempStack->push_back(formula.substr(k));
 			}
@@ -114,9 +117,8 @@ int main()
 	cin >> n;
 	while (n--) {
 		string question = calc->MakeFormula();
-		string ret = calc->Solve(question);
+		string ret = calc->Solve("4*2");
 		outfile << ret << endl;
-		cout << ret << endl;
 		Sleep(1000);
 	}
 	outfile.close();
