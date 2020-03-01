@@ -40,17 +40,12 @@ string Calculator::Solve(string formula) {
 		char formulaChar = formula[j + 1];
 		if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
 			formulaChar == '*' || formulaChar == '/') {
-			if ((*tempStack).size() == 0) {
-				tempStack->push_back(formula.substr(k,j+1));
-			}
 			if (j == len - 2) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
-				}
 				if (operatorStack->empty()) {
+					tempStack->push_back(formula.substr(k, j + 1));
 					operatorStack->push(formulaChar);
 				}
 				else {
@@ -60,7 +55,9 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(formula.substr(k, j-k+1));
+						tempStack->push_back(string(1, operatorStack->top()));
+
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -117,7 +114,7 @@ int main()
 	cin >> n;
 	while (n--) {
 		string question = calc->MakeFormula();
-		string ret = calc->Solve("4*2");
+		string ret = calc->Solve("15/5+3-2");
 		outfile << ret << endl;
 		Sleep(1000);
 	}

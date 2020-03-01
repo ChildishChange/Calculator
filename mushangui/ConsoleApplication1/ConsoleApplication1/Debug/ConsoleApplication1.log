@@ -1,3 +1,3 @@
 ﻿  ConsoleApplication1.cpp
-C:\Users\ilw\Desktop\study\大三下\软件工程\项目\Calculator\mushangui\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(77,20): warning C4018: “<”: 有符号/无符号不匹配
+C:\Users\ilw\Desktop\study\大三下\软件工程\项目\Calculator\mushangui\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(74,20): warning C4018: “<”: 有符号/无符号不匹配
   ConsoleApplication1.vcxproj -> C:\Users\ilw\Desktop\study\大三下\软件工程\项目\Calculator\mushangui\ConsoleApplication1\Debug\ConsoleApplication1.exe

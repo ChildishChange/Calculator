@@ -31,8 +31,8 @@ namespace CalculatorUnitTest
 		TEST_METHOD(TestMethod4)
 		{
 			Calculator* calc = new Calculator();
-			string ret = calc->Solve("10/2");
-			Assert::AreEqual(ret, (string)"10/2=5");
+			string ret = calc->Solve("15/5+3-2");
+			Assert::AreEqual(ret, (string)"15/5+3-2=4");
 		}
 	};
 }
