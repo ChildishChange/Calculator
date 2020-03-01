@@ -27,6 +27,14 @@ string Calculator::MakeFormula() {
 		int number2 = random(0, 100);
 		if (operation == DIV) {
 			number2 = random(1, 100);
+			if (number1 % number2 != 0) {
+				for (int i = number1 - 1; i >= 2; i--) {
+					if (number1 % i == 0) {
+						number2 = i;
+						break;
+					}
+				}
+			}
 		}
 		formula += op[operation] + to_string(number2);
 		number1 = number2;
