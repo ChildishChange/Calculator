@@ -64,7 +64,6 @@ int excute(int num1, int num2, char op) {
 }
 
 string Calculator::Solve(string formula) {
-    stack<string> tmp_stack;
     stack<int> num_stack;
     stack<char> op_stack;
 

@@ -22,7 +22,7 @@ int main() {
         string question = calc->MakeFormula();
         string ret = calc->Solve(question);
 //        cout << ret << endl;
-//        out << ret << endl;
+        out << ret << endl;
     }
 
     out.close();
