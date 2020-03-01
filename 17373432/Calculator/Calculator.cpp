@@ -10,6 +10,8 @@
 #include "stdlib.h"
 #include <ctime>
 #include <string>
+#include <windows.h>
+#include <fstream>
 #include "Calculator.h"
 
 #define random(a,b) (rand()%(b-a+1)+a)
@@ -20,16 +22,22 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
+	//srand((unsigned int)time(NULL));
 	int count = random(1, 3);
 	int start = 0;
-	int number1 = random(1, 100);
+	int number1 = random(0, 100);
 	formula += to_string(number1);
 	while (start <= count) {
 		int operation = random(0, 3);
-		int number2 = random(1, 100);
+		int number2 = random(0, 100);
+		if (operation == 3) {
+			while (number2 == 0 || number1 % number2 != 0) {
+				number2 = random(1, number1);
+			}
+		}
 		formula += op[operation] + to_string(number2);
 		start++;
+		number1 = number2;
 	}
 	return formula;
 };
@@ -47,8 +55,8 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+				if (k <= j) {
+					tempStack->push_back(formula.substr(k, j - k + 1));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -60,9 +68,10 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(string(1, operatorStack->top()));
 						operatorStack->pop();
-						operatorStack->push(formulaChar);
+						//operatorStack->push(formulaChar);
+						j--;
 					}
 				}
 			}
@@ -101,6 +110,9 @@ string Calculator::Solve(string formula) {
 				calcStack->push(to_string(a1 * b1));
 			}
 			else if (peekChar == "/") {
+				if (a1 % b1 != 0) {
+					return "WRONG FORMAT!";
+				}
 				calcStack->push(to_string(a1 / b1));
 			}
 		}
@@ -110,13 +122,24 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
-	for (int i = 0; i < 10000000; i++) {
+	ofstream fout("subject.txt");
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
 		Calculator* calc = new Calculator();
+		srand((i + n) * n * (unsigned int)time(NULL));
 		string question = calc->MakeFormula();
-		cout << question << endl;
-		string ret = calc->Solve("11+22");
+		//cout << question << endl;
+		string ret = calc->Solve(question);
+		if (ret == "WRONG FORMAT!") {
+			n++;
+			continue;
+		}
 		cout << ret << endl;
+		//Sleep(1000);
+		fout << ret << endl;
 	}
+	fout.close();
 }
 
 
