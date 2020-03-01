@@ -1,3 +1,3 @@
 ﻿  Calculator.cpp
-F:\SE\Calculator\eitbar\Calculator\Calculator\Calculator.cpp(74,20): warning C4018:  “<”: 有符号/无符号不匹配
+F:\SE\Calculator\eitbar\Calculator\Calculator\Calculator.cpp(81,20): warning C4018:  “<”: 有符号/无符号不匹配
   Calculator.vcxproj -> F:\SE\Calculator\eitbar\Calculator\Debug\Calculator.exe

@@ -7,6 +7,10 @@
 #include <ctime>
 #include <string>  
 using namespace std;
+#define PLUS 0
+#define SUB  1
+#define MUL  2
+#define DIV  3
 
 class Calculator {
 private:
