@@ -1,11 +1,13 @@
 #pragma once
-#include "stdafx.h"
-#include <stack>
+//#include "stdafx.h"
+/*#include <stack>
 #include <vector>
 #include <iostream>
 #include "stdlib.h"
 #include <ctime>
 #include <string>  
+*/
+#include<bits/stdc++.h>
 using namespace std;
 
 class Calculator {

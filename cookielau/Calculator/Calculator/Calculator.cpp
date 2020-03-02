@@ -1,7 +1,4 @@
-﻿// Calculator.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
-
-
+﻿
 
 //#include "stdafx.h"
 #include <stack>
@@ -21,16 +18,39 @@ Calculator::Calculator() {}
 string Calculator::MakeFormula() {
 	string formula = "";
 	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(2, 3);
 	int start = 0;
 	int number1 = random(1, 100);
-	formula += to_string(number1);
-	while (start <= count) {
+	// since we need to find a/b where a%b=0
+	// so we generate reversely
+	bool isDiv = false;
+	int lastNum;
+	int number2;
+	while (start < count) {
 		int operation = random(0, 3);
-		int number2 = random(1, 100);
-		formula += op[operation] + to_string(number2);
+		while (isDiv && op[operation] == "/") {
+			operation = random(0, 3);
+		}
+		if (isDiv) {
+			number2 = lastNum * random(1, 100 / lastNum);
+		}
+		else {
+			number2 = random(1, 100);
+		}
+		formula = op[operation] + to_string(number2) + formula;
 		start++;
+		isDiv = (op[operation] == "/") ? true : false;
+		if (isDiv) {
+			lastNum = number2;
+		}
 	}
+	if (isDiv) {
+		number2 = lastNum * random(1, 100 / lastNum);
+	}
+	else {
+		number2 = random(1, 100);
+	}
+	formula = to_string(number2) + formula;
 	return formula;
 };
 
@@ -41,15 +61,15 @@ string Calculator::Solve(string formula) {
 	int k = 0;
 	for (int j = -1; j < len - 1; j++) {
 		char formulaChar = formula[j + 1];
-		if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
+		if (j >= len - 2 || formulaChar == '+' || formulaChar == '-' ||
 			formulaChar == '*' || formulaChar == '/') {
-			if (j == len - 2) {
+			if (j >= len - 2) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
-				}
+				//if (k <= j) {
+				tempStack->push_back(formula.substr(k, j + 1 - k));
+				//}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
 				}
@@ -58,10 +78,23 @@ string Calculator::Solve(string formula) {
 					if ((stackChar == '+' || stackChar == '-')
 						&& (formulaChar == '*' || formulaChar == '/')) {
 						operatorStack->push(formulaChar);
+						//tempStack->push_back(string(1, formulaChar));
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
-						operatorStack->pop();
+						int flag = (formulaChar == '*' || formulaChar == '/') ? 2 : 1; // 2 for mul/div 1 for add/sub
+						while (true) {
+							tempStack->push_back(string(1, stackChar));
+							operatorStack->pop();
+							if (operatorStack->empty()) {
+								break;
+							}
+							else {
+								stackChar = operatorStack->top();
+								int temp = (stackChar == '*' || stackChar == '/') ? 2 : 1;
+								if (temp != flag)
+									break;
+							}
+						}
 						operatorStack->push(formulaChar);
 					}
 				}
@@ -113,21 +146,11 @@ int main()
 	Calculator* calc = new Calculator();
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("11+22");
+	string ret;
+	//ret = calc->Solve("46-88/88*37+88");
+	ret = calc->Solve(question);
 	cout << ret << endl;
-	getchar();
+	//getchar();
 }
 
 
-
-
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
-
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
