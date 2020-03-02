@@ -149,6 +149,7 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
+/*
 int main(int argc, char **argv)
 {
 	srand((unsigned int)time(NULL));
@@ -167,4 +168,15 @@ int main(int argc, char **argv)
 	}
 	ofs.close();
 	return 0;
+}
+*/
+
+int main() {
+	for (int i = 0; i < 1000000; i++) {
+		Calculator* calc = new Calculator();
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve("11+22");
+		cout << ret << endl;
+	}
 }
