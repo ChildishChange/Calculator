@@ -1,0 +1,5 @@
+﻿  Calculator.cpp
+  stdafx.cpp
+  正在生成代码...
+C:\Users\buaa\Course\SoftwareEngineer\Calculator\yzy11235\Calculator\Calculator.cpp(74,20): warning C4018:  “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> C:\Users\buaa\Course\SoftwareEngineer\Calculator\yzy11235\Calculator\Debug\Calculator.exe
