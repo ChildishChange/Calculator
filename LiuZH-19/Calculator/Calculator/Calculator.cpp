@@ -5,45 +5,75 @@
 #include "stdlib.h"
 #include <ctime>
 #include <string>
+#include <fstream> 
 #include "Calculator.h"
 
 #define random(a,b) (rand()%(b-a+1)+a)
 
 using namespace std;
 
+
 Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	//srand((unsigned int)time(NULL));
+	//int count = random(1, 3);
+	int count = random(1, 2);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
 	while (start <= count) {
 		int operation = random(0, 3);
 		int number2 = random(1, 100);
+		if (operation == 3 && number1 % number2 != 0) {//若运算为除法且无法整除
+			int i;
+			for (i = 2; i < 10; i++) {
+				if (number1 % i == 0) {
+					number2 = i;
+					break;
+				}
+			}
+			if (i == 10) {
+				number2 = 1;
+			}
+		}
 		formula += op[operation] + to_string(number2);
 		start++;
+		//记录前面的运算数
+		if(operation == 3){
+			number1 = number1 / number2;
+		}
+		else if (operation == 2) {
+			number1 = number1 * number2;
+		}
+		else {
+			number1 = number2;
+		}
 	}
 	return formula;
 };
 
 string Calculator::Solve(string formula) {
+	//tempStack中存放 转换后的 后缀表达式
 	vector<string>* tempStack = new vector<string>();
 	stack<char>* operatorStack = new stack<char>();
 	int len = formula.length();
 	int k = 0;
 	for (int j = -1; j < len - 1; j++) {
 		char formulaChar = formula[j + 1];
+		//formulaChar 为最后一个字符 或者为运算符
 		if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
 			formulaChar == '*' || formulaChar == '/') {
 			if (j == len - 2) {
 				tempStack->push_back(formula.substr(k));
 			}
-			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+			else {//formulaChar为运算符
+				//if(k< j) 错！
+				if (k <= j) {//将 substr(k,j+1)表示的操作数加入 tempStack
+					//tempStack->push_back(formula.substr(k, j + 1));
+					//substr(pos,n)从pos开始长度为n的字符串
+					tempStack->push_back(formula.substr(k, j + 1-k));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -55,7 +85,9 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						//tempStack->push_back(to_string(operatorStack->top()));
+						// to_string  将数字转乘字符串  会把运算符装成ASSIC的字符串
+						tempStack->push_back(string(1, operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -68,6 +100,8 @@ string Calculator::Solve(string formula) {
 		tempStack->push_back(string(1, operatorStack->top()));
 		operatorStack->pop();
 	}
+
+	//开始计算后缀表达式
 	stack<string>* calcStack = new stack<string>();
 	for (int i = 0; i < tempStack->size(); i++) {
 		string peekChar = tempStack->at(i);
@@ -102,15 +136,49 @@ string Calculator::Solve(string formula) {
 	}
 	return formula + "=" + calcStack->top();
 }
-
+/*
 int main()
 {
+	int n;
+
 	Calculator* calc = new Calculator();
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("11+22");
+	string ret = calc->Solve("2*2-1");
 	cout << ret << endl;
-	getchar();
+	//getchar();
+	
+	Calculator* calc = new Calculator();
+	srand((unsigned int)time(NULL));
+	for (int i = 0; i < 10; i++) {
+		
+		string question = calc->MakeFormula();
+		//cout << question << endl;
+		string ret = calc->Solve(question);
+		cout << ret << endl;
+	}
 }
+*/
 
+int main(int argc, char* argv[]) {
+	int n;
+	//cout << argc << endl;
+	n = atoi(argv[1]);//接收命令行参数n
+	//cout << n << endl;
+	Calculator* calc = new Calculator();
+    ofstream outfile;
+	outfile.open(".\\subject.txt", ios::app);
+
+	srand((unsigned int)time(NULL));
+	for (int i = 0; i < n; i++) {
+		string question = calc->MakeFormula();
+		string ret = calc->Solve(question);
+		//cout << ret << endl;
+		outfile << ret << endl;
+	}
+
+	outfile.close();
+	return 0;
+
+}
 
