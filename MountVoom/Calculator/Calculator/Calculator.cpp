@@ -4,6 +4,7 @@
 #include "stdlib.h"
 #include <ctime>
 #include <string>
+#include <cstdlib>
 #include "Calculator.h"
 
 #define random(a,b) (rand()%(b-a+1)+a)
@@ -14,14 +15,24 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(1, 2);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
+	int pronumber = number1;
 	while (start <= count) {
 		int operation = random(0, 3);
 		int number2 = random(1, 100);
+		if (operation == 2) {
+			pronumber *= number2;
+		}
+		else if (operation == 3) {
+			int up = pronumber < 100 ? pronumber : 100;
+			while (pronumber % number2)
+				number2 = random(1, up);
+			pronumber /= number2;
+		}
+		else pronumber = number2;
 		formula += op[operation] + to_string(number2);
 		start++;
 	}
@@ -104,12 +115,14 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
+	FILE* out;
+	srand((unsigned int)time(NULL));
+	auto err = fopen_s(&out, "subject.txt", "w");	
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
+	int n;
+	cin >> n;
+	while (n--) {
+		string question = calc->MakeFormula();
+		fprintf(out, "%s\n", calc->Solve(question).c_str());
+	}
 }
-
-

@@ -1,0 +1,4 @@
+﻿    正在创建库 C:\Users\asus\Desktop\软件工程\Calculator\MountVoom\Calculator\Release\CalculatorUnitTest.lib 和对象 C:\Users\asus\Desktop\软件工程\Calculator\MountVoom\Calculator\Release\CalculatorUnitTest.exp
+CalculatorUnitTest.obj : error LNK2001: 无法解析的外部符号 "public: __thiscall Calculator::Calculator(void)" (??0Calculator@@QAE@XZ)
+CalculatorUnitTest.obj : error LNK2001: 无法解析的外部符号 "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __thiscall Calculator::Solve(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Solve@Calculator@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V23@@Z)
+C:\Users\asus\Desktop\软件工程\Calculator\MountVoom\Calculator\Release\CalculatorUnitTest.dll : fatal error LNK1120: 2 个无法解析的外部命令
