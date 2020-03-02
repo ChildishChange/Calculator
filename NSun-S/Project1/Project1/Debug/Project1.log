@@ -1,0 +1,4 @@
+﻿  stdafx.cpp
+  Calculator.cpp
+D:\study\软件工程\lab0\Calculator\NSun-S\Project1\Project1\Calculator.cpp(87,20): warning C4018: “<”: 有符号/无符号不匹配
+  Project1.vcxproj -> D:\study\软件工程\lab0\Calculator\NSun-S\Project1\Debug\Project1.exe
