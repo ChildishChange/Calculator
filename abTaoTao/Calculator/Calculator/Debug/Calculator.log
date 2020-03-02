@@ -1,0 +1,2 @@
+﻿  Calculator.cpp
+D:\学习资料\大三下\软工\第一次作业\Calculator\abTaoTao\Calculator\Calculator\Calculator.h(2,10): error C1083:  无法打开包括文件: “stdafx.h”: No such file or directory
