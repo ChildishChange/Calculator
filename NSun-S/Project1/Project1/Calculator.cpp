@@ -38,6 +38,7 @@ string Calculator::Solve(string formula)
 	vector<string>* tempStack = new vector<string>();
 	stack<char>* operatorStack = new stack<char>();
 	int len = formula.length();
+	//cout << formula.substr(2, 3) << endl;
 	int k = 0;
 	for (int j = -1; j < len - 1; j++)
 	{
@@ -51,9 +52,10 @@ string Calculator::Solve(string formula)
 			}
 			else
 			{
-				if (k < j)
+				if (k < j + 1)//////////////////////////////
 				{
-					tempStack->push_back(formula.substr(k, j + 1));
+					tempStack->push_back(formula.substr(k, j + 1 - k));
+					//cout << formula.substr(k, j + 1) << k << j+1<< endl;
 				}
 				if (operatorStack->empty())
 				{
@@ -69,8 +71,13 @@ string Calculator::Solve(string formula)
 					}
 					else
 					{
-						tempStack->push_back(to_string(operatorStack->top()));
-						operatorStack->pop();
+						//tempStack->push_back(to_string(operatorStack->top()));
+						while (!operatorStack->empty())
+						{
+							tempStack->push_back(string(1, operatorStack->top()));
+							operatorStack->pop();
+							
+						}
 						operatorStack->push(formulaChar);
 					}
 				}
@@ -129,12 +136,14 @@ string Calculator::Solve(string formula)
 
 int main()
 {
+	//for(int i = 0; i < 1000000; i++){
 	Calculator* calc = new Calculator();
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("11+22");
+	string ret = calc->Solve("3-4*2+6");
 	cout << ret << endl;
-	getchar();
+	//getchar();
+	//}
 }
 
 
