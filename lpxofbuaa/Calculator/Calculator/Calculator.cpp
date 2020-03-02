@@ -92,6 +92,7 @@ string Calculator::MakeFormula() {
 					}
 				}
 			}
+			tmp /= number2;
 			
 		}
 		//cout << number2 << endl;
