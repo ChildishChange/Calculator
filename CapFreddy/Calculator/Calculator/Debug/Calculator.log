@@ -1,3 +1,4 @@
 ﻿  Calculator.cpp
-d:\the_new_g141203_stuff\buaa\软件工程\作业\1\calculator\capfreddy\calculator\calculator\calculator.cpp(74): warning C4018: “<”: 有符号/无符号不匹配
+d:\the_new_g141203_stuff\buaa\软件工程\作业\1\calculator\capfreddy\calculator\calculator\calculator.cpp(28): warning C4018: “<”: 有符号/无符号不匹配
+d:\the_new_g141203_stuff\buaa\软件工程\作业\1\calculator\capfreddy\calculator\calculator\calculator.cpp(118): warning C4018: “<”: 有符号/无符号不匹配
   Calculator.vcxproj -> D:\The_new_G141203_stuff\BUAA\软件工程\作业\1\Calculator\CapFreddy\Calculator\Debug\Calculator.exe

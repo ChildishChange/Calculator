@@ -5,27 +5,71 @@
 #include "stdlib.h"
 #include <ctime>
 #include <string>
+#include <string.h>
+#include <fstream>
 #include "Calculator.h"
 
 #define random(a,b) (rand()%(b-a+1)+a)
+#define is_op(x) (x == '+' || x == '-' || x == '*' || x == '/')
 
 using namespace std;
 
 Calculator::Calculator() {}
 
-string Calculator::MakeFormula() {
-	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
-	int start = 0;
-	int number1 = random(1, 100);
-	formula += to_string(number1);
-	while (start <= count) {
-		int operation = random(0, 3);
-		int number2 = random(1, 100);
-		formula += op[operation] + to_string(number2);
-		start++;
+int is_valid(string formula) {
+	char op;
+	int i, digit_begin, current, previous;
+	for (i = 0, digit_begin = 0; !is_op(formula[i]); i++);
+	op = formula[i];
+	current = stoi(formula.substr(digit_begin, i - digit_begin));
+	previous = current;
+	digit_begin = i + 1;
+
+	for (i++; i < formula.length(); i++) {
+		if (is_op(formula[i])) {
+			current = stoi(formula.substr(digit_begin, i - digit_begin));
+			if (op == '*') {
+				previous *= current;
+			}
+			else if (op == '/') {
+				if (current == 0 || previous % current) {
+					return 0;
+				}
+				previous /= current;
+			}
+			else {
+				previous = current;
+			}
+			op = formula[i];
+			digit_begin = i + 1;
+		}
+		else if (i == formula.length() - 1) {
+			current = stoi(formula.substr(digit_begin, i - digit_begin + 1));
+			if (op == '/') {
+				if (current == 0 || previous % current) {
+					return 0;
+				}
+			}
+		}
 	}
+	return 1;
+}
+
+string Calculator::MakeFormula() {
+	string formula;
+	do {
+		formula = "";
+		int count = random(1, 2);
+		int start = 0;
+		int number1 = random(1, 100);
+		formula += to_string(number1);
+		while (start <= count) {
+			int operation = random(0, 3);
+			int number2 = random(1, 100);
+			formula += op[operation] + to_string(number2);
+			start++;
+		}
+	} while (!is_valid(formula));
 	return formula;
 };
 
@@ -105,19 +149,22 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
-int main()
+int main(int argc, char **argv)
 {
+	srand((unsigned int)time(NULL));
+	int n = atoi(argv[1]);
+
+	ofstream ofs;
+	ofs.open("subject.txt", ios::out);
+
 	Calculator* calc = new Calculator();
-	string ret = calc->Solve("13+17-1");
-	cout << ret << endl;
-
-	/*
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
-	*/
+	while (n--) {
+		string question = calc->MakeFormula();
+		ofs << calc->Solve(question);
+		if (n != 0) {
+			ofs << endl;
+		}
+	}
+	ofs.close();
+	return 0;
 }
-
-
