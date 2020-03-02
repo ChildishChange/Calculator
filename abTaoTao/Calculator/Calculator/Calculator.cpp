@@ -16,11 +16,12 @@ Calculator::Calculator() {}
 string Calculator::MakeFormula() {
 	string formula = "";
 	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(2, 3); //不符合题目要求，运算符的数目应该为2~3
+	//int count = 3;
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
-	while (start <= count) {
+	while (start < count) {  //不符合题目要求，运算符的数目应该为2~3
 		int operation = random(0, 3);
 		int number2 = random(1, 100);
 		formula += op[operation] + to_string(number2);
@@ -42,7 +43,7 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
+				if (k <= j) {				//长度为1的数字无法入栈
 					tempStack->push_back(formula.substr(k, j + 1));
 				}
 				if (operatorStack->empty()) {
@@ -55,7 +56,9 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						string temp_str = " ";
+						temp_str[0] = operatorStack->top();
+						tempStack->push_back(temp_str); //to_string不适用于char
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
