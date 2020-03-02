@@ -1,0 +1,7 @@
+﻿  Calculator.cpp
+E:\大三下\软件工程\第一次作业\Calculator\a458269373\Calculator\Calculator.cpp(73,20): warning C4018:  “<”: 有符号/无符号不匹配
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 311 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  Calculator.vcxproj -> E:\大三下\软件工程\第一次作业\Calculator\a458269373\Calculator\Release\Calculator.exe
