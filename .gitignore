@@ -33,3 +33,5 @@
 
 # Other
 *.opendb
+*.log
+*.tlog

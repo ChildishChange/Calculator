@@ -40,77 +40,65 @@ string Calculator::MakeFormula() {
 };
 
 string Calculator::Solve(string formula) {
-	vector<string>* tempStack = new vector<string>();
-	stack<char>* operatorStack = new stack<char>();
-	int len = formula.length();
-	int k = 0;
-	for (int j = -1; j < len - 1; j++) {
-		char formulaChar = formula[j + 1];
-		if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
-			formulaChar == '*' || formulaChar == '/') {
-			if (j == len - 2) {
-				tempStack->push_back(formula.substr(k));
+	stack<char> opStack;
+	stack<int> numStack;
+	vector<int> polandExp;
+	int len = formula.size();
+	for (int i = 0, j; i < len; ++i) {
+		char ch = formula[i];
+		if (ch >= '0' && ch <= '9') {
+			j = i; int number = 0;
+			while (j < len && formula[j] >= '0' && formula[j] <= '9') {
+				number = number * 10 + formula[j] - '0';
+				++j;
 			}
-			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
-				}
-				if (operatorStack->empty()) {
-					operatorStack->push(formulaChar);
-				}
-				else {
-					char stackChar = operatorStack->top();
-					if ((stackChar == '+' || stackChar == '-')
-						&& (formulaChar == '*' || formulaChar == '/')) {
-						operatorStack->push(formulaChar);
-					}
-					else {
-						tempStack->push_back(to_string(operatorStack->top()));
-						operatorStack->pop();
-						operatorStack->push(formulaChar);
-					}
-				}
-			}
-			k = j + 2;
-		}
-	}
-	while (!operatorStack->empty()) {
-		tempStack->push_back(string(1, operatorStack->top()));
-		operatorStack->pop();
-	}
-	stack<string>* calcStack = new stack<string>();
-	for (int i = 0; i < tempStack->size(); i++) {
-		string peekChar = tempStack->at(i);
-		if (peekChar != "+" && peekChar != "-"
-			&& peekChar != "/" && peekChar != "*") {
-			calcStack->push(peekChar);
+			i = j - 1;
+			polandExp.push_back(number);
 		}
 		else {
-			int a1 = 0;
-			int b1 = 0;
-			if (!calcStack->empty()) {
-				b1 = stoi(calcStack->top());
-				calcStack->pop();
+			if (opStack.empty()) opStack.push(ch);
+			else if (ch == '*' || ch == '/') {
+				while (!opStack.empty() && (opStack.top() == '*' || opStack.top() == '/')) {
+					polandExp.push_back((int)opStack.top() * -1);
+					opStack.pop();
+				}
+				opStack.push(ch);
 			}
-			if (!calcStack->empty()) {
-				a1 = stoi(calcStack->top());
-				calcStack->pop();
-			}
-			if (peekChar == "+") {
-				calcStack->push(to_string(a1 + b1));
-			}
-			else if (peekChar == "-") {
-				calcStack->push(to_string(a1 - b1));
-			}
-			else if (peekChar == "*") {
-				calcStack->push(to_string(a1 * b1));
-			}
-			else if (peekChar == "/") {
-				calcStack->push(to_string(a1 / b1));
+			else {
+				while (!opStack.empty()) {
+					polandExp.push_back((int)opStack.top() * -1);
+					opStack.pop();
+				}
+				opStack.push(ch);
 			}
 		}
 	}
-	return formula + "=" + calcStack->top();
+	while (!opStack.empty()) {
+		polandExp.push_back((int)opStack.top() * -1);
+		opStack.pop();
+	}
+	for (auto x : polandExp) {
+		if (x >= 0) numStack.push(x);
+		else {
+			char operation = (char) -x;
+			int b = numStack.top(); numStack.pop();
+			int a = numStack.top(); numStack.pop();
+			if (operation == '+') {
+				a += b;
+			}
+			else if (operation == '-') {
+				a -= b;
+			}
+			else if (operation == '*') {
+				a *= b;
+			}
+			else if (operation == '/') {
+				a /= b;
+			}
+			numStack.push(a);
+		}
+	}
+	return formula + "=" + to_string((int) numStack.top());
 }
 
 int main()

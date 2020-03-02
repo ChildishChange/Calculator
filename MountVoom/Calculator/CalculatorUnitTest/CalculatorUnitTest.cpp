@@ -24,6 +24,9 @@ namespace CalculatorUnitTest
 
 			ret = calc->Solve("1+2-6/3+2*6");
 			Assert::AreEqual(ret, (string)"1+2-6/3+2*6=13");
+
+			ret = calc->Solve("24/4/6");
+			Assert::AreEqual(ret, (string)"24/4/6=1");
 		}
 	};
 }
