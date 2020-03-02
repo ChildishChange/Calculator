@@ -15,8 +15,8 @@ namespace CalculatorUnitTest
 			Calculator* calc = new Calculator();
 			string ret = calc->Solve("11+22");
 			Assert::AreEqual(ret, (string)"11+22=33");
-			ret = calc->Solve("11+22");
-			Assert::AreEqual(ret, (string)"11+22=33");
+			ret = calc->Solve("1+2");
+			Assert::AreEqual(ret, (string)"1+2=3");
 			ret = calc->Solve("11+22/11");
 			Assert::AreEqual(ret, (string)"11+22/11=13");
 			ret = calc->Solve("11*22");

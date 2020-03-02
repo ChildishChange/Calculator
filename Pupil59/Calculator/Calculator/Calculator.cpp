@@ -46,7 +46,7 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
+				if (k <= j) {
 					tempStack->push_back(formula.substr(k, j + 1 - k));
 				}
 				if (operatorStack->empty()) {
@@ -109,16 +109,13 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
-	ofstream fout("subject.txt");
-	int n;
-	cin >> n;
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < 10000000; i++) {
 		Calculator* calc = new Calculator();
 		string question = calc->MakeFormula();
-		string ret = calc->Solve(question);
-		fout << ret << endl;
+		cout << question << endl;
+		string ret = calc->Solve("11+22");
+		cout << ret << endl;
 	}
-	getchar();
 }
 
 
