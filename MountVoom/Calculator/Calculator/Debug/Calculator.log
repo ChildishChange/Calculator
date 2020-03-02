@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+C:\Users\asus\Desktop\软件工程\Calculator\MountVoom\Calculator\Calculator\Calculator.cpp(71,20): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> C:\Users\asus\Desktop\软件工程\Calculator\MountVoom\Calculator\Debug\Calculator.exe
