@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+B:\赵博名\软件工程\Calculator\Calculator\Calculator\Calculator.cpp(132,20): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> B:\赵博名\软件工程\Calculator\Calculator\Debug\Calculator.exe
