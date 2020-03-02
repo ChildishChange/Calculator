@@ -1,3 +1,5 @@
-﻿  CalculatorUnitTest.cpp
+﻿  pch.cpp
+  CalculatorUnitTest.cpp
 C:\Users\blackbird\Desktop\Calculator\blackbird52\Calculator\Calculator\Calculator.cpp(73,20): warning C4018: “<”: 有符号/无符号不匹配
+    正在创建库 C:\Users\blackbird\Desktop\Calculator\blackbird52\Calculator\Debug\CalculatorUnitTest.lib 和对象 C:\Users\blackbird\Desktop\Calculator\blackbird52\Calculator\Debug\CalculatorUnitTest.exp
   CalculatorUnitTest.vcxproj -> C:\Users\blackbird\Desktop\Calculator\blackbird52\Calculator\Debug\CalculatorUnitTest.dll
