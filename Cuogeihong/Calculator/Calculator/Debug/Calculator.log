@@ -1,0 +1,4 @@
+﻿  Calculator.cpp
+e:\jobs\se\calculator\cuogeihong\calculator\calculator\calculator.cpp(78): warning C4018: “<”: 有符号/无符号不匹配
+e:\jobs\se\calculator\cuogeihong\calculator\calculator\calculator.cpp(155): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> E:\jobs\SE\Calculator\Cuogeihong\Calculator\Debug\Calculator.exe
