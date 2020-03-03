@@ -6,7 +6,7 @@
 #include <ctime>
 #include <string>
 #include "Calculator.h"
-
+#include <fstream>
 #define random(a,b) (rand()%(b-a+1)+a)
 
 using namespace std;
@@ -15,8 +15,7 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(1, 2);				//(1,3) (1,2)
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
@@ -42,8 +41,10 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+
+				
+				if (k <= j) {												//k<j -> k<=j
+					tempStack->push_back(formula.substr(k, j - k + 1));			//j+1 -> j-k+2
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -51,11 +52,12 @@ string Calculator::Solve(string formula) {
 				else {
 					char stackChar = operatorStack->top();
 					if ((stackChar == '+' || stackChar == '-')
-						&& (formulaChar == '*' || formulaChar == '/')) {
+						&& (formulaChar == '*' || formulaChar == '/')) {			
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						//tempStack->push_back(to_string(operatorStack->top()));	
+						tempStack->push_back(string(1, operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -103,14 +105,20 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+	int n = stoi(argv[0]);
+	//int n = 4;
+	ofstream output("subject.txt");
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
+	srand((unsigned int)time(NULL));
+	for (int i = 0; i < n; i++) {
+		string question = calc->MakeFormula();
+		string ret = calc->Solve(question);
+		cout << ret << endl;
+		output << ret << endl;
+	}
+	output.close();
 }
 
 
