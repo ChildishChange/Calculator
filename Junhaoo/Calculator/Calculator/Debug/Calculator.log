@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+C:\Study\GitProjects\Calculator\Junhaoo\Calculator\Calculator\Calculator.cpp(143,20): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> C:\Study\GitProjects\Calculator\Junhaoo\Calculator\Debug\Calculator.exe
