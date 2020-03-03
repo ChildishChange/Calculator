@@ -15,4 +15,5 @@ public:
 	Calculator();
 	string MakeFormula();
 	string Solve(string formula);
+	bool Adjust(string formula);
 };
