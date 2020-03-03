@@ -1,12 +1,13 @@
 ﻿#include <stack>
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include "stdlib.h"
 #include <ctime>
 #include <string>
 #include "Calculator.h"
 
-#define random(a,b) (rand()%(b-a+1)+a)
+#define random(a,b) (rand()%(b-a)+a)
 
 using namespace std;
 
@@ -14,10 +15,9 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
 	int count = random(1, 3);
 	int start = 0;
-	int number1 = random(1, 100);
+	int number1 = random(0, 100);
 	formula += to_string(number1);
 	while (start <= count) {
 		int operation = random(0, 3);
@@ -104,12 +104,16 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
-	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
+	srand((unsigned int)time(NULL));
+	unsigned int i, n;
+	cin >> n;
+	ofstream subject("subject.txt");
+	for (i = 0; i < n; ++i) {
+		Calculator* calc = new Calculator();
+		string question = calc->MakeFormula();
+		subject << question << endl;
+	}
+	subject.close();
 }
 
 
