@@ -1,0 +1,3 @@
+﻿  calc.cpp
+E:\NSRproject\BUAAse\Calculator\NoSameRain\calc\calc.cpp(75,20): warning C4018:  “<”: 有符号/无符号不匹配
+  calc.vcxproj -> E:\NSRproject\BUAAse\Calculator\NoSameRain\calc\Debug\calc.exe
