@@ -1,0 +1,4 @@
+﻿  Cal.cpp
+C:\Users\Shinelon\Desktop\Cal\Calculator\mjjm3\Cal\Cal\Cal.cpp(36,20): warning C4018:  “<”: 有符号/无符号不匹配
+C:\Users\Shinelon\Desktop\Cal\Calculator\mjjm3\Cal\Cal\Cal.cpp(46,12): warning C4018:  “<”: 有符号/无符号不匹配
+  Cal.vcxproj -> C:\Users\Shinelon\Desktop\Cal\Calculator\mjjm3\Cal\Debug\Cal.exe

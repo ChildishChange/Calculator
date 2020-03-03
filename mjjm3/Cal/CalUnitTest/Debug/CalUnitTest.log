@@ -1,0 +1,4 @@
+﻿    正在创建库 C:\Users\Shinelon\Desktop\Cal\Calculator\mjjm3\Cal\Debug\CalUnitTest.lib 和对象 C:\Users\Shinelon\Desktop\Cal\Calculator\mjjm3\Cal\Debug\CalUnitTest.exp
+CalUnitTest.obj : error LNK2019: 无法解析的外部符号 "public: __thiscall Calculator::Calculator(void)" (??0Calculator@@QAE@XZ)，该符号在函数 "public: void __thiscall CalUnitTest::CalUnitTest::TestMethod1(void)" (?TestMethod1@CalUnitTest@1@QAEXXZ) 中被引用
+CalUnitTest.obj : error LNK2019: 无法解析的外部符号 "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __thiscall Calculator::Solve(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Solve@Calculator@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V23@@Z)，该符号在函数 "public: void __thiscall CalUnitTest::CalUnitTest::TestMethod1(void)" (?TestMethod1@CalUnitTest@1@QAEXXZ) 中被引用
+C:\Users\Shinelon\Desktop\Cal\Calculator\mjjm3\Cal\Debug\CalUnitTest.dll : fatal error LNK1120: 2 个无法解析的外部命令
