@@ -15,6 +15,8 @@ using namespace std;
 
 Calculator::Calculator() {}
 
+int is_exact_division = 1;
+
 string Calculator::MakeFormula() {
 	string formula = "";
 	srand((unsigned int)time(NULL));
@@ -28,10 +30,19 @@ string Calculator::MakeFormula() {
 		formula += op[operation] + to_string(number2);
 		start++;
 	}
-	return formula;
+	Calculator* calc = new Calculator();
+	calc->Solve(formula);
+	if (is_exact_division == 0) {
+		return formula;
+	}
+	else
+	{
+		return calc->MakeFormula();
+	}
 };
 
 string Calculator::Solve(string formula) {
+	is_exact_division = 0;
 	vector<string>* tempStack = new vector<string>();
 	stack<char>* operatorStack = new stack<char>();
 	int len = formula.length();
@@ -99,6 +110,9 @@ string Calculator::Solve(string formula) {
 			}
 			else if (peekChar == "/") {
 				calcStack->push(to_string(a1 / b1));
+				if (a1 / b1 * b1 != a1) {
+					is_exact_division = 1;
+				}
 			}
 		}
 	}
@@ -110,7 +124,7 @@ int main()
 	Calculator* calc = new Calculator();
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("13+17-1");
+	string ret = calc->Solve("13+17/2");
 	cout << ret << endl;
 	int times = getchar();
 /*
