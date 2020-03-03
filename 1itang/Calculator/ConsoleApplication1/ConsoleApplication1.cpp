@@ -1,20 +1,131 @@
-﻿// ConsoleApplication1.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+﻿#include <iostream>
+#include <string> 
+#include <stack>
+#include <stdlib.h>
+#include <sstream>
+#include <ctime>
 
-#include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+static string op[4] = { "+", "-", "*", "/" };// Operation set
+static int mem = 0;
+
+static string MakeFormula() {
+	srand((int)time(0));
+	string build = "\0";
+	int count = rand() % 2 + 1; // generate random count
+	int start = 0;
+	int number1 = rand() % 100;
+	build = to_string(number1);
+	while (start <= count) {
+		int operation = rand() % 4; // generate operator
+		int number2 = rand() % 100 + 1;
+		build = build + op[operation] + to_string(number2);
+		start++;
+	}
+	return build;
 }
 
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
+static string Solve(string formula) {
+	stack<string> tempStack;//Store number or operator
+	stack<char> operatorStack;//Store operator
+	const int len = formula.length();
+	int k = 0,i = 0;
+	string str;
+	for (int j = -1; j < len - 1; j++) {
+		str = "";
+		char formulaChar = formula[j + 1];
+		if (j == len - 2 || formulaChar == '+' || formulaChar == '-' || formulaChar == '/' || formulaChar == '*') {
+			if (j == len - 2) {
+				tempStack.push(formula.substr(k));
+			}
+			else {
+				if (k < j) {
+					tempStack.push(formula.substr(k, j + 1 - k));
+				}
+				if (operatorStack.empty()) {
+					operatorStack.push(formulaChar); //if operatorStack is empty, store it
+				}
+				else {
+					char stackChar = operatorStack.top();
+					if ((stackChar == '+' || stackChar == '-')
+						&& (formulaChar == '*' || formulaChar == '/')) {
+						operatorStack.push(formulaChar);
+					}
+					else {
+						str = str + operatorStack.top();
+						operatorStack.pop();
+						tempStack.push(str);
+						operatorStack.push(formulaChar);
+					}
+				}
+			}
+			k = j + 2;
+		}
+	}
+	while (!operatorStack.empty()) { // Append remaining operators
+		str = "";
+		str = str + operatorStack.top();
+		operatorStack.pop();
+		tempStack.push(str);
+	}
+	char line[6][4];
+	k = tempStack.size();
+	for (i = 0; i < k; i++) {
+		str = tempStack.top();
+		stringstream ss;
+		ss << str;
+		ss >> line[k - i - 1];
+		//line[k - i - 1] = str;
+		tempStack.pop();
+	}
+	stack<string> calcStack;
+	for (i = 0; i < k; i++) { // Reverse traversing of stack
+		if ((strcmp(line[i],"+") != 0) && (strcmp(line[i] , "-") != 0) && (strcmp(line[i], "*") != 0) && (strcmp(line[i], "/") != 0)) {
+			calcStack.push(line[i]); // Push number to stack
+		}
+		else {
+			int a1 = 0;
+			int b1 = 0;
+			if (!calcStack.empty()) {
+				str = calcStack.top();
+				calcStack.pop();
+				stringstream ss;
+				ss << str;
+				ss >> b1;
+			}
+			if (!calcStack.empty()) {
+				str = calcStack.top();
+				calcStack.pop();
+				stringstream ss;
+				ss << str;
+				ss >> a1;
+			}
+			if (strcmp(line[i] , "+") == 0) {
+				calcStack.push(to_string(a1 + b1));
+			}
+			else if (strcmp(line[i] ,"-") == 0) {
+				calcStack.push(to_string(a1 - b1));
+			}
+			else if (strcmp(line[i], "*") == 0) {
+				calcStack.push(to_string(a1 * b1));
+			}
+			else {
+				if (a1 % b1 != 0) {
+					return "ER";
+				}
+				calcStack.push(to_string(a1 / b1));
+			}
+		}
+	}
+	return calcStack.top();
+}
 
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
+void main() {
+	mem = 0;
+	cin >> mem;
+	string question = MakeFormula();
+	cout << question << endl;
+	string ret = Solve(question);
+	cout << ret << endl;
+}
