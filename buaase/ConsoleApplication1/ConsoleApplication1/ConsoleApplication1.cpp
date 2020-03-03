@@ -18,7 +18,7 @@ Calculator::Calculator() {}
 string Calculator::MakeFormula() {
 	string formula = "";
 	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(2, 3);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
@@ -41,11 +41,11 @@ string Calculator::Solve(string formula) {
 		if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
 			formulaChar == '*' || formulaChar == '/') {
 			if (j == len - 2) {
-				tempStack->push_back(formula.substr(k));
+				tempStack->push_back(formula.substr(k, len - k));
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+				if (k <= j) {
+					tempStack->push_back(formula.substr(k, j + 1 - k));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -57,7 +57,7 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(string(1, operatorStack->top()));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}
@@ -110,9 +110,18 @@ int main()
 	Calculator* calc = new Calculator();
 	string question = calc->MakeFormula();
 	cout << question << endl;
-	string ret = calc->Solve("11+22");
+	string ret = calc->Solve("13+17-1");
 	cout << ret << endl;
-	getchar();
+	int times = getchar();
+/*
+	for (int i = 0; i < 10000000; i++) {
+		Calculator* calc = new Calculator();
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve("11+22");
+		cout << ret << endl;
+	}
+	*/
 }
 
 
