@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+D:\Repos\Calculator\TheSoundWorld\Calculator\Calculator\Calculator.cpp(75,20): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> D:\Repos\Calculator\TheSoundWorld\Calculator\Debug\Calculator.exe
