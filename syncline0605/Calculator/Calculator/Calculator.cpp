@@ -21,10 +21,29 @@ string Calculator::MakeFormula() {
 	int count = random(1, 2);
 	int start = 0;
 	int number1 = random(1, 100);
+	int number2 = number1;
+	int divflag = 0;
 	formula += to_string(number1);
 	while (start <= count) {
 		int operation = random(0, 3);
-		int number2 = random(1, 100);
+		if (operation == 3) {
+			if (divflag) {
+				number2 = 1;
+			}
+			else {
+				divflag = 1;
+				for (int i = 2; i <= 10; i++) {
+					if (number2 % i == 0) {
+						number2 = i;
+						break;
+					}
+				}
+			}
+		}
+		else {
+			divflag = 0;
+			number2 = random(1, 100);
+		}
 		formula += op[operation] + to_string(number2);
 		start++;
 	}
