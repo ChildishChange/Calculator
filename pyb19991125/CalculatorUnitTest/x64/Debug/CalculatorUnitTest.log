@@ -1,0 +1,6 @@
+﻿  pch.cpp
+  CalculatorUnitTest.cpp
+    正在创建库 D:\软件工程\Calculator\pyb19991125\ConsoleApplication1\x64\Debug\CalculatorUnitTest.lib 和对象 D:\软件工程\Calculator\pyb19991125\ConsoleApplication1\x64\Debug\CalculatorUnitTest.exp
+CalculatorUnitTest.obj : error LNK2019: 无法解析的外部符号 "public: __cdecl Calculator::Calculator(void)" (??0Calculator@@QEAA@XZ)，该符号在函数 "public: void __cdecl CalculatorUnitTest::CalculatorUnitTest::TestMethod1(void)" (?TestMethod1@CalculatorUnitTest@1@QEAAXXZ) 中被引用
+CalculatorUnitTest.obj : error LNK2019: 无法解析的外部符号 "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl Calculator::Solve(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Solve@Calculator@@QEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V23@@Z)，该符号在函数 "public: void __cdecl CalculatorUnitTest::CalculatorUnitTest::TestMethod1(void)" (?TestMethod1@CalculatorUnitTest@1@QEAAXXZ) 中被引用
+D:\软件工程\Calculator\pyb19991125\ConsoleApplication1\x64\Debug\CalculatorUnitTest.dll : fatal error LNK1120: 2 个无法解析的外部命令
