@@ -84,11 +84,18 @@ string Calculator::Solve(string formula) {
 						&& (formulaChar == '*' || formulaChar == '/')) {
 						operatorStack->push(formulaChar);
 					}
-					else {
-						//tempStack->push_back(to_string(operatorStack->top()));
-						// to_string  将数字转乘字符串  会把运算符装成ASSIC的字符串
-						tempStack->push_back(string(1, operatorStack->top()));
-						operatorStack->pop();
+					else {//当操作符小于等于栈顶操作符的优先级时，栈顶操作符写入后缀表达式，！！！重复此过程
+						while (!((stackChar == '+' || stackChar == '-')
+							&& (formulaChar == '*' || formulaChar == '/'))) {
+							//tempStack->push_back(to_string(operatorStack->top()));
+							// to_string  将数字转乘字符串  会把运算符装成ASSIC的字符串
+							tempStack->push_back(string(1, stackChar));
+							operatorStack->pop();
+							if (operatorStack->empty()) {
+								break;
+							}
+							stackChar = operatorStack->top();							
+						}
 						operatorStack->push(formulaChar);
 					}
 				}
@@ -139,24 +146,15 @@ string Calculator::Solve(string formula) {
 /*
 int main()
 {
-	int n;
-
-	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("2*2-1");
-	cout << ret << endl;
-	//getchar();
 	
-	Calculator* calc = new Calculator();
-	srand((unsigned int)time(NULL));
-	for (int i = 0; i < 10; i++) {
-		
+	for (int i = 0; i < 10000000; i++) {
+		Calculator* calc = new Calculator();
 		string question = calc->MakeFormula();
-		//cout << question << endl;
-		string ret = calc->Solve(question);
+		cout << question << endl;
+		string ret = calc->Solve("11+22");
 		cout << ret << endl;
 	}
+	
 }
 */
 
@@ -174,6 +172,7 @@ int main(int argc, char* argv[]) {
 		string question = calc->MakeFormula();
 		string ret = calc->Solve(question);
 		//cout << ret << endl;
+		//将ret中的"/"替换为 "÷"
 		outfile << ret << endl;
 	}
 
@@ -181,4 +180,5 @@ int main(int argc, char* argv[]) {
 	return 0;
 
 }
+
 
