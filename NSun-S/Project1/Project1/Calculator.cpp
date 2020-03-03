@@ -21,12 +21,12 @@ string Calculator::MakeFormula()
 {
 	string formula = "";
 	
-	int count = random(1, 3);
+	int count = random(2, 3);
 	int start = 0;
 	int number1 = random(1, 100);
 	
 	formula += to_string(number1);
-	while (start <= count)
+	while (start < count)
 	{
 		int operation = random(0, 3);
 		int number2 = random(1, 100);
@@ -36,8 +36,12 @@ string Calculator::MakeFormula()
 			{
 				number2 = random(1, number1);
 			}
+			number1 = number1 / number2;
 		}
-		number1 = number2;
+		else
+		{
+			number1 = number2;
+		}
 		formula += op[operation] + to_string(number2);
 		start++;
 	}
@@ -83,11 +87,23 @@ string Calculator::Solve(string formula)
 					else
 					{
 						//tempStack->push_back(to_string(operatorStack->top()));
-						while (!operatorStack->empty())
+						if ((formulaChar == '+' || formulaChar == '-'))
 						{
-							tempStack->push_back(string(1, operatorStack->top()));
-							operatorStack->pop();
-							
+							while (!operatorStack->empty())
+							{
+								tempStack->push_back(string(1, operatorStack->top()));
+								operatorStack->pop();
+
+							}
+						}
+						else
+						{
+							while (!operatorStack->empty()&&!(operatorStack->top()=='+'|| operatorStack->top() == '-'))
+							{
+								tempStack->push_back(string(1, operatorStack->top()));
+								operatorStack->pop();
+
+							}
 						}
 						operatorStack->push(formulaChar);
 					}
@@ -145,16 +161,17 @@ string Calculator::Solve(string formula)
 	return formula + "=" + calcStack->top();
 }
 
-int main()
+int main(int   argc, char* argv[])
 {
 	int n;
-	cin >> n;
+	n = stoi(argv[1]);
+	//cin >> n;
 	std::fstream output("subject.txt", ios::out);
 	Calculator* calc = new Calculator();
 	srand((unsigned int)time(NULL));
 	for(int i = 0; i < n; i++){
 		string question = calc->MakeFormula();
-		cout << question << endl;
+		//cout << question << endl;
 		string ret = calc->Solve(question);
 		output << ret << endl;
 		//cout << ret << endl;
