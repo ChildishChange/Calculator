@@ -6,6 +6,7 @@
 #include <ctime>
 #include <string>
 #include "Calculator.h"
+#include <sstream>
 
 #define random(a,b) (rand()%(b-a+1)+a)
 
@@ -202,13 +203,28 @@ void QuestionBuilder::Make(int n) {
 	writer.close();
 }
 
-int main()
+int main(int argc, char* argv[])
 {
 	Calculator* calc = new Calculator();
-	QuestionBuilder* builder = new QuestionBuilder(calc);
+	
 	int n;
-	cin >> n;
-	builder->Make(n);
+	
+	if (argc < 2) {
+		cout << "Please give the total number n!" << endl;
+	}
+	else {
+		string num = argv[1];
+		stringstream check(num);
+		if (check >> n) {
+			QuestionBuilder* builder = new QuestionBuilder(calc);
+			builder->Make(n);
+		}
+		else {
+			cout << "The number n should be integer!" << endl;
+		}
+	}
+	//cin >> n;
+	
 	/*string question = calc->MakeFormula();
 	cout << question << endl;
 	string ret = calc->Solve("3*60-2");
