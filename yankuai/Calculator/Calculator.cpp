@@ -15,7 +15,7 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	int count = random(1, 2);				//(1,3) (1,2)
+	int count = random(1, 2);				//(1,3)->(1,2)
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
@@ -98,6 +98,9 @@ string Calculator::Solve(string formula) {
 				calcStack->push(to_string(a1 * b1));
 			}
 			else if (peekChar == "/") {
+				if (a1 % b1 != 0) {
+					return "#Wrong";
+				}
 				calcStack->push(to_string(a1 / b1));
 			}
 		}
@@ -108,13 +111,17 @@ string Calculator::Solve(string formula) {
 int main(int argc, char* argv[])
 {
 	int n = stoi(argv[0]);
-	//int n = 4;
+	//int n = 10;
 	ofstream output("subject.txt");
 	Calculator* calc = new Calculator();
 	srand((unsigned int)time(NULL));
 	for (int i = 0; i < n; i++) {
 		string question = calc->MakeFormula();
 		string ret = calc->Solve(question);
+		if (ret == "#Wrong") {
+			i--;
+			continue;
+		}
 		cout << ret << endl;
 		output << ret << endl;
 	}
