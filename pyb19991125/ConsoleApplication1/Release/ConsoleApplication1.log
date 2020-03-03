@@ -1,0 +1,7 @@
+﻿  ConsoleApplication1.cpp
+D:\软件工程\Calculator\pyb19991125\ConsoleApplication1\ConsoleApplication1.cpp(71,20): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 327 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  ConsoleApplication1.vcxproj -> D:\软件工程\Calculator\pyb19991125\ConsoleApplication1\Release\ConsoleApplication1.exe
