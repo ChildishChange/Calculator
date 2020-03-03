@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+F:\c_c++\Calculator\Reliacrt\Calculator\Calculator\Calculator.cpp(71,20): warning C4018: “<”: 有符号/无符号不匹配
+  Calculator.vcxproj -> F:\c_c++\Calculator\Reliacrt\Calculator\Debug\Calculator.exe
