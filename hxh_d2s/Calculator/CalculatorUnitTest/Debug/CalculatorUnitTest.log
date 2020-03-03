@@ -1,0 +1,10 @@
+﻿  unittest1.cpp
+d:\study\软件工程\git\calculator\hxh_d2s\calculator\calculatorunittest\unittest1.cpp(15): error C2065: “Calculator”: 未声明的标识符
+d:\study\软件工程\git\calculator\hxh_d2s\calculator\calculatorunittest\unittest1.cpp(15): error C2065: “calc”: 未声明的标识符
+d:\study\软件工程\git\calculator\hxh_d2s\calculator\calculatorunittest\unittest1.cpp(15): error C2061: 语法错误: 标识符“Calculator”
+d:\study\软件工程\git\calculator\hxh_d2s\calculator\calculatorunittest\unittest1.cpp(16): error C2065: “string”: 未声明的标识符
+d:\study\软件工程\git\calculator\hxh_d2s\calculator\calculatorunittest\unittest1.cpp(17): error C2065: “ret”: 未声明的标识符
+d:\study\软件工程\git\calculator\hxh_d2s\calculator\calculatorunittest\unittest1.cpp(17): error C2065: “string”: 未声明的标识符
+d:\study\软件工程\git\calculator\hxh_d2s\calculator\calculatorunittest\unittest1.cpp(17): error C2143: 语法错误: 缺少“)”(在“字符串”的前面)
+d:\study\软件工程\git\calculator\hxh_d2s\calculator\calculatorunittest\unittest1.cpp(17): error C2143: 语法错误: 缺少“;”(在“字符串”的前面)
+d:\study\软件工程\git\calculator\hxh_d2s\calculator\calculatorunittest\unittest1.cpp(17): error C2059: 语法错误:“)”
