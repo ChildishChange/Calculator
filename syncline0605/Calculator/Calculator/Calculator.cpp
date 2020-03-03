@@ -64,8 +64,8 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+				if (k <= j) {
+					tempStack->push_back(formula.substr(k, j + 1 - k));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
