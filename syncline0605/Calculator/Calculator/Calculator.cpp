@@ -7,6 +7,7 @@
 #include "stdlib.h"
 #include <ctime>
 #include <string>
+#include <fstream>
 #include "Calculator.h"
 
 #define random(a,b) (rand()%(b-a+1)+a)
@@ -17,7 +18,7 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
+	//srand((unsigned int)time(NULL));
 	int count = random(1, 2);
 	int start = 0;
 	int number1 = random(1, 100);
@@ -124,14 +125,19 @@ string Calculator::Solve(string formula) {
 	return formula + "=" + calcStack->top();
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+	ofstream output;
+	output.open(".\\subject.txt", ios::app);
+	int n = atoi(argv[1]);
+	srand((unsigned int)time(NULL));
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
-	getchar();
+	for (int i = 0; i < n; i++) {
+		string question = calc->MakeFormula();
+		string ret = calc->Solve(question);
+		output << ret << endl;
+	}
+	output.close();
 }
 
 
