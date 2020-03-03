@@ -41,10 +41,10 @@ string Calculator::Solve(string formula) {
 		if (j == len - 2 || formulaChar == '+' || formulaChar == '-' ||
 			formulaChar == '*' || formulaChar == '/') {
 			if (j == len - 2) {
-				tempStack->push_back(formula.substr(k));
+				tempStack->push_back(formula.substr(k));//last number
 			}
 			else {
-				if (k < j) {
+				if (k <= j) {
 					tempStack->push_back(formula.substr(k, j + 1));
 				}
 				if (operatorStack->empty()) {
@@ -57,7 +57,7 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
+						tempStack->push_back(string(1, stackChar));
 						operatorStack->pop();
 						operatorStack->push(formulaChar);
 					}

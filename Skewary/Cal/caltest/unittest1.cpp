@@ -13,8 +13,8 @@ namespace caltest
 		{
 			// TODO: 在此输入测试代码
 			Calculator* calc = new Calculator();
-			string ret = calc->Solve("11+22");
-			Assert::AreEqual(ret, (string)"11+22=33");
+			string ret = calc->Solve("2*3+4*5");
+			Assert::AreEqual(ret, (string)"2*3+4*5=26");
 		}
 
 	};
