@@ -1,6 +1,4 @@
-﻿
-
-#include "pch.h"
+﻿#include "pch.h"
 #include <stack>
 #include <vector>
 #include <iostream>
@@ -8,6 +6,7 @@
 #include <ctime>
 #include <string>
 #include "Calculator.h"
+#include <fstream>
 
 #define random(a,b) (rand()%(b-a+1)+a)
 
@@ -17,7 +16,6 @@ Calculator::Calculator() {}
 
 string Calculator::MakeFormula() {
 	string formula = "";
-	srand((unsigned int)time(NULL));
 	int count = random(1, 3);
 	int start = 0;
 	int number1 = random(1, 100);
@@ -107,11 +105,17 @@ string Calculator::Solve(string formula) {
 
 int main()
 {
+	srand((unsigned int)time(NULL));
+	ofstream mycout("subject.txt");
+	int i, num;
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
-	cout << ret << endl;
+	cin >> num;
+	for (i = 0; i < num; i++) {
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve(question);
+		mycout << ret << endl;
+	}
 	getchar();
 }
 
