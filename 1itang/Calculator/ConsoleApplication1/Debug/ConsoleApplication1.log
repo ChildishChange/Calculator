@@ -1,3 +1,4 @@
-﻿  ConsoleApplication1.cpp
-D:\forstudy\software_engineering\Repos\Calculator\1itang\Calculator\ConsoleApplication1\ConsoleApplication1.cpp(124,13): warning C4326: “main”的返回类型应为“int”而非“void”
-  ConsoleApplication1.vcxproj -> D:\forstudy\software_engineering\Repos\Calculator\1itang\Calculator\Debug\ConsoleApplication1.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (ConsoleApplication1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Calculator.cpp
+D:\forstudy\software_engineering\Repos\Calculator\1itang\Calculator\ConsoleApplication1\Calculator.cpp(204,20): warning C4018: “<”: 有符号/无符号不匹配
+  ConsoleApplication1.vcxproj -> D:\forstudy\software_engineering\Repos\Calculator\1itang\Calculator\Debug\Calculator.exe
