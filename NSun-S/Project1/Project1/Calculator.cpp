@@ -4,6 +4,8 @@
 #include <stack>
 #include <vector>
 #include <iostream>
+#include <fstream>
+#include <ios>
 #include "stdlib.h"
 #include <ctime>
 #include <string>
@@ -18,15 +20,24 @@ Calculator::Calculator() {}
 string Calculator::MakeFormula()
 {
 	string formula = "";
-	srand((unsigned int)time(NULL));
+	
 	int count = random(1, 3);
 	int start = 0;
 	int number1 = random(1, 100);
+	
 	formula += to_string(number1);
 	while (start <= count)
 	{
 		int operation = random(0, 3);
 		int number2 = random(1, 100);
+		if (operation == 3)
+		{
+			while (!(number1 % number2 == 0))
+			{
+				number2 = random(1, number1);
+			}
+		}
+		number1 = number2;
 		formula += op[operation] + to_string(number2);
 		start++;
 	}
@@ -136,14 +147,20 @@ string Calculator::Solve(string formula)
 
 int main()
 {
-	//for(int i = 0; i < 1000000; i++){
+	int n;
+	cin >> n;
+	std::fstream output("subject.txt", ios::out);
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("3-4*2+6");
-	cout << ret << endl;
-	//getchar();
-	//}
+	srand((unsigned int)time(NULL));
+	for(int i = 0; i < n; i++){
+		string question = calc->MakeFormula();
+		cout << question << endl;
+		string ret = calc->Solve(question);
+		output << ret << endl;
+		//cout << ret << endl;
+		//getchar();
+	}
+	output.close();
 }
 
 
