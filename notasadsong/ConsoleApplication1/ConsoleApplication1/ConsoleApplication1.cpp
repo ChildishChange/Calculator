@@ -18,7 +18,7 @@ Calculator::Calculator() {}
 string Calculator::MakeFormula() {
 	string formula = "";
 	srand((unsigned int)time(NULL));
-	int count = random(1, 3);
+	int count = random(1, 2);
 	int start = 0;
 	int number1 = random(1, 100);
 	formula += to_string(number1);
@@ -30,6 +30,91 @@ string Calculator::MakeFormula() {
 	}
 	return formula;
 };
+
+string Calculator::aaaa() {
+	string formula = "";
+	srand((unsigned int)time(NULL));
+	int count = random(1, 2);
+	int start = 0;
+	double redo = 1.1;
+
+	int op1[4] = {};
+	int num[5] = {};
+
+	while (redo != int(redo))
+	{
+		op1[0] = random(0, 3);
+		op1[1] = random(0, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			num[i] = random(1, 100);
+		}
+
+		if (count == 1) //生成两个运算符
+		{
+			if (op1[0] == 3) {
+				redo = float(num[0]) / num[1];
+				if (op1[1] == 3) 
+				{
+					redo = redo / num[2];
+				}
+			}
+			else {
+				if (op1[1] == 3) {
+					redo = float(num[1]) / num[2];
+				}
+				else {
+					redo = 1;
+				}
+			}
+		}
+		else { //三个运算符
+			op1[2] = random(0, 3);
+			num[3] = random(1, 100);
+			if (op1[0] == 3) {
+				redo = float(num[0]) / num[1];
+				if (op1[1] == 3)
+				{
+					redo = redo / num[2];
+					if (op1[2] == 3) {
+						redo = redo / num[3];
+					}
+				}
+				else {
+					if (op1[2] == 3) {
+						double redo2 = float(num[2]) / num[3];
+						if (redo2 != int(redo2))
+						{
+							redo = redo2;
+						}
+					}
+				}
+			}
+			else {
+				if (op1[1] == 3) {
+					redo = float(num[1]) / num[2];
+					if (op1[2] == 3) {
+						redo = redo / num[3];
+					}
+				}
+				else {
+					if (op1[2] == 3) {
+						redo = float(num[2]) / num[3];
+					}
+					else {
+						redo = 1;
+					}
+				}
+			}
+		}
+	}
+	formula += to_string(num[0]);
+	while (start <= count) {
+		formula += op[op1[start]] + to_string(num[start + 1]);
+		start++;
+	}
+	return formula;
+}
 
 string Calculator::Solve(string formula) {
 	vector<string>* tempStack = new vector<string>();
@@ -44,8 +129,8 @@ string Calculator::Solve(string formula) {
 				tempStack->push_back(formula.substr(k));
 			}
 			else {
-				if (k < j) {
-					tempStack->push_back(formula.substr(k, j + 1));
+				if (k <= j) {
+					tempStack->push_back(formula.substr(k, j + 1 - k));
 				}
 				if (operatorStack->empty()) {
 					operatorStack->push(formulaChar);
@@ -57,8 +142,14 @@ string Calculator::Solve(string formula) {
 						operatorStack->push(formulaChar);
 					}
 					else {
-						tempStack->push_back(to_string(operatorStack->top()));
-						operatorStack->pop();
+						while (!operatorStack->empty()) {
+
+							string temp = (&operatorStack->top());
+							temp = temp.at(0);
+
+							tempStack->push_back(temp);
+							operatorStack->pop();
+						}
 						operatorStack->push(formulaChar);
 					}
 				}
@@ -108,9 +199,12 @@ string Calculator::Solve(string formula) {
 int main()
 {
 	Calculator* calc = new Calculator();
-	string question = calc->MakeFormula();
-	cout << question << endl;
-	string ret = calc->Solve("11+22");
+	//string question = calc->MakeFormula();
+	//for (int i = 0; i < 100; i++) {
+		string question = calc->aaaa();
+		cout << question << endl;
+	//}
+	string ret = calc->Solve("15/3+10/5");
 	cout << ret << endl;
 	getchar();
 }

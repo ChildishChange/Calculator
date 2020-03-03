@@ -14,6 +14,7 @@ private:
 public:
 	Calculator();
 	string MakeFormula();
+	string aaaa();
 	string Solve(string formula);
 };
 #pragma once
