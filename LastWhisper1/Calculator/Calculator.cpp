@@ -137,13 +137,15 @@ int main()
 {
     Calculator* calc = new Calculator();
     srand((unsigned int)time(NULL));
-    for (int i = 0; i < 10; i++) {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
         string question = calc->MakeFormula();
         cout << question << endl;
         string ret = calc->Solve(question);
         cout << ret << endl;
     }
-    getchar();
+    //getchar();
 }
 
 

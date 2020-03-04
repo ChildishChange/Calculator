@@ -19,7 +19,7 @@ public:
     string Solve(string formula);
 };
 
-int findFactor(int num) {
+inline int findFactor(int num) {
     //对一个100以内的正整数尝试寻找因子
     //如果是合数，则在2~10以内随机返回一个因子
     //如果是质数，返回1

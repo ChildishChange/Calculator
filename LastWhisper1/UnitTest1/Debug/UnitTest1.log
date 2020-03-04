@@ -1,5 +1,3 @@
 ﻿  CalculatorUnitTest.cpp
-  LINK : 没有找到 D:\Calculator\LastWhisper1\Calculator\Debug\CalculatorUnitTest.dll 或上一个增量链接没有生成它；正在执行完全链接
-CalculatorUnitTest.obj : error LNK2005: "int __cdecl findFactor(int)" (?findFactor@@YAHH@Z) 已经在 Calculator.obj 中定义
     正在创建库 D:\Calculator\LastWhisper1\Calculator\Debug\CalculatorUnitTest.lib 和对象 D:\Calculator\LastWhisper1\Calculator\Debug\CalculatorUnitTest.exp
-D:\Calculator\LastWhisper1\Calculator\Debug\CalculatorUnitTest.dll : fatal error LNK1169: 找到一个或多个多重定义的符号
+  UnitTest1.vcxproj -> D:\Calculator\LastWhisper1\Calculator\Debug\CalculatorUnitTest.dll
