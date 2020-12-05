@@ -1,0 +1,6 @@
+﻿  CalculatorUnitTest.cpp
+c:\users\hjh\documents\se2020\calculator\buaase\consoleapplication1\consoleapplication1\consoleapplication1.cpp(74): warning C4018: “<”: 有符号/无符号不匹配
+Debug\CalculatorUnitTest.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+Debug\pch.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+    正在创建库 C:\Users\hjh\Documents\SE2020\Calculator\buaase\ConsoleApplication1\Debug\CalculatorUnitTest.lib 和对象 C:\Users\hjh\Documents\SE2020\Calculator\buaase\ConsoleApplication1\Debug\CalculatorUnitTest.exp
+  CalculatorUnitTest.vcxproj -> C:\Users\hjh\Documents\SE2020\Calculator\buaase\ConsoleApplication1\Debug\CalculatorUnitTest.dll

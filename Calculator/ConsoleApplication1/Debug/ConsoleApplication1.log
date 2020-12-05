@@ -1,0 +1,2 @@
+﻿  ConsoleApplication1.cpp
+c:\users\hjh\documents\se2020\calculator\calculator\consoleapplication1\consoleapplication1.cpp(3): fatal error C1083: 无法打开预编译头文件: “Debug\ConsoleApplication1.pch”: No such file or directory
